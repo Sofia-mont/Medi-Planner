@@ -6,7 +6,6 @@ def enfermeras(request):
     # PARA CUANDO SE CREE LA BASE DE DATOS enfermeras = Enfermeras.objects.all()
     return render(request, "index-nurse.html")
 
-
 def enfermerasJefe(request):
     return render(request, "index-chief-nursing.html")
 
