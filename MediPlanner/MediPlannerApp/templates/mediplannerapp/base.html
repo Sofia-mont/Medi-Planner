@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'MediPlannerApp/css/base.css'%}">
+    {% block ccsLinks %}{% endblock %}
+    <script src="https://kit.fontawesome.com/d4662f63fb.js"></script>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+
+    <!-- Incio nav -->
+    <nav>
+        <div class="container-nav">
+            <h1>Medi-Planner</h1>
+            <div class="menu">
+                <a href="#" class="is-active">Exit</a>
+            </div>
+            <button class="hamburguer">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    <!-- Fin Nav -->
+
+    {% block content %}
+
+    {% endblock %}
+
+    <!-- Inicio Footer -->
+    <footer class="pie-pagina">
+        <div class="grupo-1">
+            <div class="box">
+                <figure>
+                    <a href="#"><svg viewBox="0 0 90 90" fill="none" role="img" xmlns="http://www.w3.org/2000/svg"
+                            width="80" height="80">
+                            <title>Margaret Brent</title>
+                            <mask id="mask__ring" maskUnits="userSpaceOnUse" x="0" y="0" width="90" height="90">
+                                <rect width="90" height="90" rx="180" fill="#FFFFFF"></rect>
+                            </mask>
+                            <g mask="url(#mask__ring)">
+                                <path d="M0 0h90v45H0z" fill="#edd75a"></path>
+                                <path d="M0 45h90v45H0z" fill="#73b06f"></path>
+                                <path d="M83 45a38 38 0 00-76 0h76z" fill="#73b06f"></path>
+                                <path d="M83 45a38 38 0 01-76 0h76z" fill="#0c8f8f"></path>
+                                <path d="M77 45a32 32 0 10-64 0h64z" fill="#0c8f8f"></path>
+                                <path d="M77 45a32 32 0 11-64 0h64z" fill="#405059"></path>
+                                <path d="M71 45a26 26 0 00-52 0h52z" fill="#405059"></path>
+                                <path d="M71 45a26 26 0 01-52 0h52z" fill="#edd75a"></path>
+                                <circle cx="45" cy="45" r="23" fill="#ffad08"></circle>
+                            </g>
+                        </svg></a>
+                </figure>
+            </div>
+            <div class="box">
+                <h3>SOBRE EL PROYECTO</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium nobis fuga quaerat soluta
+                    eligendi ut repellat consectetur quod. Facilis officiis, minus eveniet corporis eum animi eligendi
+                    veniam iste amet magni!</p>
+            </div>
+            <div class="box">
+                <h2>DE INTERES</h2>
+                <div class="interes">
+                    <a href="#">link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                    <a href="#">Link 4</a>
+                </div>
+            </div>
+        </div>
+        <div class="grupo-2">
+            <small>&copy; 2022 <b>Medi-Planner</b> - El copyright no es de Dios</small>
+        </div>
+    </footer>
+    <!-- Fin Footer -->
+
+</body>
+
+</html>
