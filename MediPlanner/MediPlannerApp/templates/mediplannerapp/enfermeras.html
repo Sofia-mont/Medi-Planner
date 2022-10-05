@@ -1,11 +1,33 @@
 {% extends 'MediPlannerApp/base.html'%}
 {% load static %}
 
-{% block cssLinks%}
+{% block ccsLinks%}
+<link rel="stylesheet" href="{% static 'MediPlannerApp/css/tables.css'%}">
 {% endblock %}
 
 {% block title %}Enfermeras | MediPlanner{% endblock %}
 
 {% block content %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Cedula</th>
+            <th>Turno</th>
+            <th>Estado</th>
+            <th>None</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td data-label="Nombre">T</td>
+            <td data-label="Cedula">S</td>
+            <td data-label="Turno">E</td>
+            <td data-label="Estado">61</td>
+            <td data-label="None"><img src="/MediPlanner/MediPlannerApp/static/MediPlannerApp/img/nurse-table.svg" alt=""></td>
+        </tr>
+    </tbody>
+</table>
 
 {% endblock %}
