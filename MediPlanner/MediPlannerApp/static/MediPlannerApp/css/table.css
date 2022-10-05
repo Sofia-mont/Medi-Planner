@@ -1,0 +1,66 @@
+:root {
+    --primary: #55ad9d;
+    --light: #29626a;
+    --dark: #0f4456;
+}
+
+
+.table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table td, .table th{
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.table th{
+background-color: var(--dark);
+color: aliceblue;
+}
+
+.table tbody tr :nth-child(even){
+    background-color: var(--light);
+}
+
+img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+
+@media(max-width: 500px){
+    .table thead{
+        display: none;
+    }
+    .table, .table tbody, .table tr, .table td{
+        display: block;
+        width: 100%;
+    }
+
+    .table tr{
+        margin-bottom: 15px;
+    }
+
+    .table td{
+        text-align: center;
+        padding-left: 50%;
+        text-align: right;
+        position: relative;
+    }
+
+    .table td::before{
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+
+}
