@@ -1,0 +1,57 @@
+:root {
+    --primary: #55ad9d;
+    --light: #29626a;
+    --dark: #0f4456;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fira sans', sans-serif;
+
+}
+
+.icons {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 80px auto;
+}
+
+.icons img{
+    display: flex;
+    width: 200px;
+    margin: 120px;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;   
+    background: #0f4456;
+    border-radius: 99px;
+    transition: .5s ease-in-out;
+    justify-content: center;
+}
+
+
+img:hover{
+    -webkit-animation:animar .8s infinite;
+    background-image: linear-gradient(to right bottom, #307078, #2a6d7a, #215e6b, #154b5b, #1c657d);
+    transition: .6s ease-in;
+}
+
+@-webkit-keyframes animar{
+    0%{-webkit-transform:translate(0px,0px);}
+    10%{-webkit-transform:translate(5px,0px);}
+    20%{-webkit-transform:translate(0px,0px);}
+    30%{-webkit-transform:translate(5px,0px);}
+    40%{-webkit-transform:translate(0px,0px);}
+    50%{-webkit-transform:translate(5px,0px);}
+    60%{-webkit-transform:translate(0px,0px);}
+    70%{-webkit-transform:translate(5px,0px);}
+    80%{-webkit-transform:translate(0px,0px);}
+    90%{-webkit-transform:translate(5px,0px);}
+    100%{-webkit-transform:translate(0px,0px);}
+}
