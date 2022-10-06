@@ -2,18 +2,15 @@ from django.shortcuts import render
 # from Enfermeras.models import Enfermeras PARA CUANDO SE CREE LA BASE DE DATOS
 # Create your views here.
 
-def enfermeras(request):
+def index(request):
     # PARA CUANDO SE CREE LA BASE DE DATOS enfermeras = Enfermeras.objects.all()
-    return render(request, "index-nurse.html")
-
-def enfermerasJefe(request):
-    return render(request, "index-chief-nursing.html")
+    return render(request, "MediPlannerApp/index.html")
 
 def pacientes(request):
-    return render(request, "pacientes.html")
+    return render(request, "MediPlannerApp/pacientes.html")
 
 def medicinas(request):
-    return render(request, "pacientes.html")
+    return render(request, "MediPlannerApp/medicinas.html")
 
 def enfermeras(request):
-    return render(request, "pacientes.html")
+    return render(request, "MediPlannerApp/enfermeras.html")
