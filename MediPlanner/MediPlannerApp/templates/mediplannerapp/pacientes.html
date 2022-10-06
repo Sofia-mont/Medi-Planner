@@ -1,4 +1,4 @@
-{% extends "MediPlannerApp/base.html" %}
+{% extends 'MediPlannerApp/base.html' %}
 {% load static %}
 
 {% block cssLinks%}
@@ -7,7 +7,6 @@
 {% block title %}Pacientes | MediPlanner{% endblock %}
 
 {% block content %}
-
 <table class="table">
     <thead>
         <tr>
@@ -26,9 +25,8 @@
             <td data-label="Edad">E</td>
             <td data-label="Celular">61</td>
             <td data-label="Genero"></td>
-            <td data-label="None"><img src="/MediPlanner/MediPlannerApp/static/MediPlannerApp/img/patient.svg" alt=""></td>
+            <td data-label="None"><img src="{% static 'MediPlannerApp/img/patient.svg' %}" alt=""></td>
         </tr>
     </tbody>
 </table>
-
 {% endblock %}

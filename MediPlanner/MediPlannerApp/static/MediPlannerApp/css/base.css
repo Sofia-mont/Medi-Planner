@@ -9,7 +9,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Fira sans', sans-serif;
-
 }
 
 /* Inicio nav */
@@ -34,7 +33,7 @@ nav {
 }
 
 
-h1 {
+.title-page{
     color: white;
     font-size: 25px;
     font-weight: 900;
@@ -133,9 +132,7 @@ h1 {
 
 .pie-pagina{
     width: 100%;
-    margin-top: 100%;
     background-color: var(--dark);
-
 }
 
 .pie-pagina .grupo-1{
@@ -170,7 +167,6 @@ h1 {
 .pie-pagina .grupo-1 .box p{
     color: #efefef;
     margin-bottom: 10px;
-
 }
 
 .pie-pagina .grupo-1 .box h2{
