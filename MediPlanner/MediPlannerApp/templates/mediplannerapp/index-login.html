@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'MediPlannerApp/base.html'%}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block ccsLinks%}
+<link rel="stylesheet" href="{% static 'MediPlannerApp/css/styles.css'%}">
+{% endblock %}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/d4662f63fb.js"></script>
-    <link rel="stylesheet" href="../static/css/style.css">
-    <title>Document</title>
-</head>
+{% block title %}Login{% endblock %}
+
+{% block content %}
 
 <body>
 
@@ -46,7 +41,7 @@
             </form>
         </div>
     </div>
-    <script src="../js/index.js"></script>
+    <!-- <script src="../js/index.js"></script> -->
 </body>
 
-</html>
+{% endblock %}
