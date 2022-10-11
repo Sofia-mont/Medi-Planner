@@ -2,10 +2,36 @@
 {% load static %}
 
 {% block cssLinks%}
+<link rel="stylesheet" href="{% static 'MediPlannerApp/css/table.css'%}">
 {% endblock %}
 
 {% block title %}Medicinas | MediPlanner{% endblock %}
 
 {% block content %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Medicamento</th>
+            <th>Cantidad</th>
+            <th>Invima</th>
+            <th>Mg</th>
+            <th>Descripcion</th>
+            <th>Tipo Administracion</th>
+            <th>Localizacion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td data-label="Medicamentos">Paracetamol</td>
+            <td data-label="Cantidad">10 Tabletas</td>
+            <td data-label="Invima">No se</td>
+            <td data-label="Mg">5mg</td>
+            <td data-label="Descripcion">Pa la tos</td>
+            <td data-label="Tipo Administracion">Oral</td>
+            <td data-label="Localizacion">Colsubsidio</td>
+        </tr>
+    </tbody>
+</table>
 
 {% endblock %}

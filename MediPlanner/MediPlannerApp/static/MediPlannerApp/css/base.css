@@ -27,7 +27,7 @@ nav {
     left: 0;
     right: 0;
     z-index: 99;
-    background-color: var(--dark);
+    background-image: radial-gradient(circle at 50% -20.71%, #8fffff 0, #7ffffb 16.67%, #73f5ec 33.33%, #6cd8d8 50%, #67bbc1 66.67%, #64a3ac 83.33%, #618e98 100%);
     padding: 20px 40px;
     border-bottom: 4px solid var(--primary);
 }
@@ -46,9 +46,7 @@ nav {
     display: block;
     position: relative;
     z-index: 1;
-
     user-select: none;
-
     appearance: none;
     border: none;
     outline: none;
