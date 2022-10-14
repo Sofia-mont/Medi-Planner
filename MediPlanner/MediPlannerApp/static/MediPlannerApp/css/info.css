@@ -1,0 +1,147 @@
+/* General */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+img{
+    width: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: azure;
+    padding: 0 1.5rem;
+}
+
+/* Publicacion */
+
+.post{
+    width: 100%;
+    max-width: 80%;
+    height: 270px ;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 1.4rem 8rem rgba(0,0,0, .2);
+    display: flex;
+    align-items: center;
+    border: 2rem;
+}
+
+
+.img{
+    min-width: 30rem;
+    max-width: 30rem;
+    height: 27rem;
+    transform: translateX(-1rem);
+    position: relative;
+}
+
+.img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #fff;
+}
+
+.titulo{
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin: 2rem 25rem 1rem;
+    text-transform: uppercase;
+    color: rgba(79, 185, 255, 0.827);
+}
+
+
+.info-paciente{
+    display: block;
+    color: rgba(0,0,0, .5);
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin: 5rem 10rem 1rem;
+
+}
+
+.link a{
+    text-decoration: none;
+    display: block;
+    color: rgb(0, 0, 0);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-left: 10rem;
+    float: right;
+}
+
+.link a:hover{
+    color: rgb(49, 187, 141);
+    text-decoration: underline;
+}
+
+
+.btn{
+    padding: 0;
+    overflow: hidden;
+    border-width: 0;
+    outline: none;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+    background-color: aqua;
+    color: aliceblue;
+    float: right;
+    display: block;
+    padding: 10px;
+}
+
+.btn:hover{
+    background-color: cadetblue;
+}
+
+
+/* Responsive */
+
+@media screen and (max-width: 1068px) {
+    .post{
+        max-width: 80rem;
+    }
+
+    .img{
+        min-width: 25rem;
+        max-width: 25rem;
+    }
+}
+
+@media screen and (max-width: 868px) {
+    .post{
+        padding: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .post{
+        padding: 2.5rem;
+        flex-direction: column;
+    }
+
+    .img{
+        min-width: 100%;
+        max-width: 100%;
+        transform: translate(0, -8rem);
+    }
+}
+
+
+
+
+
+
