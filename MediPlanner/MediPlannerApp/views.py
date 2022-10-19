@@ -1,5 +1,5 @@
 from django.shortcuts import render
-# from Enfermeras.models import Enfermeras PARA CUANDO SE CREE LA BASE DE DATOS
+from .models import Enfermera
 # Create your views here.
 
 def index(request):
@@ -13,4 +13,5 @@ def medicinas(request):
     return render(request, "MediPlannerApp/medicinas.html")
 
 def enfermeras(request):
-    return render(request, "MediPlannerApp/enfermeras.html")
+    enfermeras = Enfermera.objects.all()
+    return render(request, "MediPlannerApp/enfermeras.html",{'enfermeras':enfermeras})
