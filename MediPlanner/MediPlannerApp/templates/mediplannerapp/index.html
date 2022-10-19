@@ -9,8 +9,8 @@
 
 {% block content %}
     <section class="icons">
-        <img src="{% static 'MediPlannerApp/img/nurse-icon.svg' %}" alt="">
-        <img src="{% static 'MediPlannerApp/img/patient.svg' %}" alt="">
-        <img src="{% static 'MediPlannerApp/img/medicament.svg' %}" alt="">
+        <a href="{% url 'enfermeras'%}"><img src="{% static 'MediPlannerApp/img/nurse-icon.svg' %}" alt=""></a>
+        <a href="{% url 'pacientes'%}"><img src="{% static 'MediPlannerApp/img/patient.svg' %}" alt=""></a>
+        <a href="{% url 'medicinas'%}"><img src="{% static 'MediPlannerApp/img/medicament.svg' %}" alt=""></a>
     </section>
 {% endblock %}

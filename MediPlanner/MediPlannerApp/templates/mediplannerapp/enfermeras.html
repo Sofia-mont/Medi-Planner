@@ -15,17 +15,18 @@
             <th>Nombre</th>
             <th>Cedula</th>
             <th>Turno</th>
-            <th>Estado</th>
+            <th>Telefono</th>
             <th>None</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td data-label="Nombre">T</td>
-            <td data-label="Cedula">S</td>
-            <td data-label="Turno">E</td>
-            <td data-label="Estado">61</td>
+            {% for enfermera in enfermeras %}
+            <td data-label="Nombre">{{enfermera.nombres}} {{enfermera.apellidos}}</td>
+            <td data-label="Cedula">{{enfemera.cedula}}</td>
+            <td data-label="Turno">{% for turnos in enfermera.turno.all %}{{turnos.ingreso}}-{{turnos.salida}}{% if not forloop.last %} | {% endif %}{% endfor %}</td>
+            <td data-label="Telefono">{{enfermera.telefono}}</td>
             <td data-label="None"><img src="{% static 'MediPlannerApp/img/nurse-table.svg' %}" alt=""></td>
+            {% endfor%}
         </tr>
     </tbody>
 </table>
