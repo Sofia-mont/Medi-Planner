@@ -1,4 +1,5 @@
 from django.db import models
+import uuid
 
 class Turno(models.Model):
     ingreso = models.CharField(max_length=50, blank=True)
@@ -23,7 +24,7 @@ class JefeEnfermeras(models.Model):
         return self.nombres + " " + self.apellidos
 
 class Enfermera(models.Model):
-    cedula = models.IntegerField(primary_key=True)
+    cedula = models.TextField(primary_key=True)
     nombres = models.CharField(max_length=50)
     apellidos = models.CharField(max_length=50)
     telefono = models.IntegerField()
