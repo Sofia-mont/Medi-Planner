@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{% static 'MediPlannerApp/css/table.css'%}">
 {% endblock %}
 
-{% block title %}Enfermeras | MediPlanner{% endblock %}
+{% block title %}Enfermeras | MediPlanner {% endblock %}
 
 {% block content %}
 
@@ -26,10 +26,10 @@
             <td data-label="Cedula">{{enfermera.cedula}}</td>
             <td data-label="Turno">{% for turnos in enfermera.turno.all %}{{turnos.ingreso}}-{{turnos.salida}}{% if not forloop.last %} | {% endif %}{% endfor %}</td>
             <td data-label="Telefono">{{enfermera.telefono}}</td>
-            <td data-label="None"><img src="{% static 'MediPlannerApp/img/nurse-table.svg' %}" alt=""></td>
+            <!-- <td data-label="None"><img src="{% static 'MediPlannerApp/img/nurse-table.svg' %}" alt=""></td> -->
             <td>
-                <a style="margin-right: 30px;" href="{% url 'eliminarEnfermera' enfermera.cedula %}">Delete</a>
-                <a style="margin-right: 30px;" href="{% url 'editarEnfermera' enfermera.cedula %}">Edit</a>
+                <a style="margin-right: 30px;" href="{% url 'eliminarEnfermera' enfermera.cedula %}">Eliminar</a>
+                <a style="margin-right: 30px;" href="{% url 'editarEnfermera' enfermera.cedula %}">Editar</a>
             </td>
         </tr>
         {% endfor%}
