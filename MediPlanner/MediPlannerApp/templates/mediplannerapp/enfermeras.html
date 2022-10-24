@@ -20,15 +20,24 @@
         </tr>
     </thead>
     <tbody>
-            {% for enfermera in enfermeras %}
+        {% for enfermera in enfermeras %}
+        <tr>
             <td data-label="Nombre">{{enfermera.nombres}} {{enfermera.apellidos}}</td>
-            <td data-label="Cedula">{{enfemera.cedula}}</td>
+            <td data-label="Cedula">{{enfermera.cedula}}</td>
             <td data-label="Turno">{% for turnos in enfermera.turno.all %}{{turnos.ingreso}}-{{turnos.salida}}{% if not forloop.last %} | {% endif %}{% endfor %}</td>
             <td data-label="Telefono">{{enfermera.telefono}}</td>
             <td data-label="None"><img src="{% static 'MediPlannerApp/img/nurse-table.svg' %}" alt=""></td>
-            {% endfor%}
+            <td>
+                <a style="margin-right: 30px;" href="{% url 'eliminarEnfermera' enfermera.cedula %}">Delete</a>
+                <a style="margin-right: 30px;" href="{% url 'editarEnfermera' enfermera.cedula %}">Edit</a>
+            </td>
         </tr>
+        {% endfor%}
     </tbody>
 </table>
+
+<div class="text-center">
+    <a href="{% url 'añadirEnfermera' %}"><button type="button" class="btn btn-primary">Añadir enfermera</button></a>
+</div>
 
 {% endblock %}

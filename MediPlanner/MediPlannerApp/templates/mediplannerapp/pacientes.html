@@ -12,20 +12,22 @@
         <tr>
             <th>Nombre</th>
             <th>Cedula</th>
-            <th>Edad</th>
-            <th>Ceular</th>
+            <th>Habitación</th>
+            <th>Celular</th>
             <th>Genero</th>
             <th>None</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td data-label="Nombre">T</td>
-            <td data-label="Cedula">S</td>
-            <td data-label="Edad">E</td>
-            <td data-label="Celular">61</td>
-            <td data-label="Genero"></td>
+            {% for paciente in pacientes %}
+            <td data-label="Nombre">{{paciente.nombres}} {{paciente.apellidos}}</td>
+            <td data-label="Cedula">{{paciente.cedula}}</td>
+            <td data-label="Edad">{{paciente.}}</td>
+            <td data-label="Celular">{{paciente.habitacion}}</td>
+            <td data-label="Genero">{{paciente.sexo}}</td>
             <td data-label="None"><img src="{% static 'MediPlannerApp/img/patient.svg' %}" alt=""></td>
+            {% endfor %}
         </tr>
     </tbody>
 </table>
