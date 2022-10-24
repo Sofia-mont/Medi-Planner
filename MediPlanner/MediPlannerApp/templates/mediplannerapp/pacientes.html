@@ -19,16 +19,24 @@
         </tr>
     </thead>
     <tbody>
+        {% for paciente in pacientes %}
         <tr>
-            {% for paciente in pacientes %}
             <td data-label="Nombre">{{paciente.nombres}} {{paciente.apellidos}}</td>
             <td data-label="Cedula">{{paciente.cedula}}</td>
             <td data-label="Edad">{{paciente.}}</td>
             <td data-label="Celular">{{paciente.habitacion}}</td>
             <td data-label="Genero">{{paciente.sexo}}</td>
-            <td data-label="None"><img src="{% static 'MediPlannerApp/img/patient.svg' %}" alt=""></td>
-            {% endfor %}
+            <!-- <td data-label="None"><img src="{% static 'MediPlannerApp/img/patient.svg' %}" alt=""></td> -->
+            <td>
+                <a style="margin-right: 30px;" href="{% url 'eliminarPaciente' paciente.cedula %}">Eliminar</a>
+                <a style="margin-right: 30px;" href="{% url 'editarPaciente' paciente.cedula %}">Editar</a>
+            </td>
         </tr>
+        {% endfor %}
     </tbody>
 </table>
+
+<div class="text-center">
+    <a href="{% url 'añadirPaciente' %}"><button type="button" class="btn btn-primary">Añadir paciente</button></a>
+</div>
 {% endblock %}

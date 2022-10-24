@@ -5,7 +5,7 @@
 
 {% endblock %}
 
-{% block title %}Enfermeras | Eliminar {% endblock %}
+{% block title %}Eliminar{% endblock %}
 
 {% block content %}
 
@@ -14,15 +14,15 @@
 
     <br><br>
     <div class="alert alert-danger" role="alert">
-        Are you sure you want to delete "{{ enfermera.nombres }}"?
+        ¿Estás seguro que quieres eliminar " {{ enfermera.nombres }} {{enfermera.apellidos}}{{ paciente.nombres }} {{paciente.apellidos}} "?
     </div>
     
     <p>
-        <a href="{% url 'enfermeras' %}"> Go back</a>
+        <a href="{% url 'index' %}">Volver</a>
     </p>
 
     <p>
-        <input class="btn btn-danger" type="submit" value="Confirm">
+        <input class="btn btn-danger" type="submit" value="Confirmar">
     </p>
 </form>
 

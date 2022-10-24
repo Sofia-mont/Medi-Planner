@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import Enfermera, Paciente, Medicamento, JefeEnfermeras, Turno
-from .forms import EnfermeraForm
+from .forms import EnfermeraForm, PacienteForm
 # Create your views here.
 
 def index(request):
@@ -9,6 +9,48 @@ def index(request):
 def pacientes(request):
     pacientes= Paciente.objects.all()
     return render(request, "MediPlannerApp/pacientes.html",{'pacientes':pacientes})
+
+def añadirPaciente(request):
+    form = PacienteForm()
+
+    if request.method == 'POST':
+        form = PacienteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('pacientes')
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'MediPlannerApp/añadir.html', context)
+
+def editarPaciente(request, cedula):  
+    paciente = Paciente.objects.get(cedula=cedula)
+    form = PacienteForm(instance=paciente)
+
+    if request.method == 'POST':
+        form = PacienteForm(request.POST, instance=paciente)
+        if form.is_valid():
+            form.save()
+            return redirect('pacientes')
+
+    context = {
+        'paciente': paciente,
+        'form': form,
+    }
+    return render(request, 'MediPlannerApp/editar.html', context)
+
+def eliminarPaciente(request, cedula):
+    paciente = Paciente.objects.get(cedula=cedula)
+
+    if request.method == 'POST':
+        paciente.delete()
+        return redirect('pacientes')
+
+    context = {
+        'paciente': paciente,
+    }
+    return render(request, 'MediPlannerApp/eliminar.html', context)
 
 def medicinas(request):
     medicinas= Medicamento.objects.all()
@@ -30,7 +72,7 @@ def añadirEnfermera(request):
     context = {
         'form': form,
     }
-    return render(request, 'MediPlannerApp/añadirEnfermera.html', context)
+    return render(request, 'MediPlannerApp/añadir.html', context)
 
 def editarEnfermera(request, cedula):  
     enfermera = Enfermera.objects.get(cedula=cedula)
@@ -46,7 +88,7 @@ def editarEnfermera(request, cedula):
         'enfermera': enfermera,
         'form': form,
     }
-    return render(request, 'MediPlannerApp/editarEnfermera.html', context)
+    return render(request, 'MediPlannerApp/editar.html', context)
 
 def eliminarEnfermera(request, cedula):
     enfermera = Enfermera.objects.get(cedula=cedula)
@@ -58,4 +100,4 @@ def eliminarEnfermera(request, cedula):
     context = {
         'enfermera': enfermera,
     }
-    return render(request, 'MediPlannerApp/eliminarEnfermera.html', context)
+    return render(request, 'MediPlannerApp/eliminar.html', context)
