@@ -67,3 +67,30 @@ class Medicamento(models.Model):
         verbose_name_plural="medicamentos"
     def __str__(self):
         return self.nombre + " " + self.cantidad
+
+class Suministro_Medicamento(models.Model):
+    Id_suministro_Medicamento = models.IntegerField(primary_key=True)
+    Id_Paciente = models.IntegerField()
+    Id_Medicamento = models.IntegerField()
+    Id_Seguimiento = models.IntegerField()
+    Hora_Medicación = models.CharField(max_length=50)
+    Dosis = models.CharField()
+
+    class Meta:
+        verbose_name="Suministro_Medicamento"
+        verbose_name_plural="Suministro_Medicamentos"
+    def __str__(self):
+        return self.HoraMedicación + " " + self.Dosis
+
+class Tabla_Seguimiento(models.Model):
+    Id_Seguimiento = models.IntegerField(primary_key=True)
+    fecha_Seguimiento=models.DateTimeField()
+    Hora_Seguimiento = models.CharField(max_length=50)
+    descripcion = models.TextField()
+
+
+    class Meta:
+        verbose_name="Tabla_Seguimiento"
+        verbose_name_plural="Tabla_Seguimientos"
+    def __str__(self):
+        return self.Hora_Seguimiento + " " + self.descripcion
