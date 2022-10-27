@@ -38,22 +38,6 @@ class Enfermera(models.Model):
     def __str__(self):
         return self.nombres
 
-class Paciente(models.Model):
-    cedula = models.IntegerField(primary_key=True)
-    nombres = models.CharField(max_length=50)
-    apellidos = models.CharField(max_length=50)
-    sexo = models.CharField(max_length=1)
-    habitacion = models.CharField(max_length=10)
-    fecha_salida=models.DateTimeField()
-    novedades = models.TextField()
-    enfermeras = models.ManyToManyField(Enfermera)
-
-    class Meta:
-        verbose_name="paciente"
-        verbose_name_plural="pacientes"
-    def __str__(self):
-        return self.nombres + " " + self.apellidos
-
 class Medicamento(models.Model):
     nombre = models.CharField(max_length=70)
     cantidad = models.CharField(max_length=10)
@@ -68,29 +52,43 @@ class Medicamento(models.Model):
     def __str__(self):
         return self.nombre + " " + self.cantidad
 
-class Suministro_Medicamento(models.Model):
-    Id_suministro_Medicamento = models.IntegerField(primary_key=True)
-    Id_Paciente = models.IntegerField()
-    Id_Medicamento = models.IntegerField()
-    Id_Seguimiento = models.IntegerField()
-    Hora_Medicación = models.CharField(max_length=50)
-    Dosis = models.CharField()
-
-    class Meta:
-        verbose_name="Suministro_Medicamento"
-        verbose_name_plural="Suministro_Medicamentos"
-    def __str__(self):
-        return self.HoraMedicación + " " + self.Dosis
-
-class Tabla_Seguimiento(models.Model):
-    Id_Seguimiento = models.IntegerField(primary_key=True)
-    fecha_Seguimiento=models.DateTimeField()
-    Hora_Seguimiento = models.CharField(max_length=50)
+class Seguimiento(models.Model):
+    fecha=models.DateTimeField(auto_now_add=True)
     descripcion = models.TextField()
 
+    class Meta:
+        verbose_name="seguimiento"
+        verbose_name_plural="seguimiento"
+    def __str__(self):
+        return self.fecha
+
+class Medicacion(models.Model):
+    medicamento = models.ManyToManyField(Medicamento)
+    seguimiento = models.ManyToManyField(Seguimiento)
+    hora = models.TimeField()
+    dosis = models.CharField(max_length=50)
 
     class Meta:
-        verbose_name="Tabla_Seguimiento"
-        verbose_name_plural="Tabla_Seguimientos"
+        verbose_name="medicacion"
+        verbose_name_plural="medicacion"
     def __str__(self):
-        return self.Hora_Seguimiento + " " + self.descripcion
+        return self.medicamento + ", " + self.dosis
+
+class Paciente(models.Model):
+    cedula = models.IntegerField(primary_key=True)
+    nombres = models.CharField(max_length=50)
+    apellidos = models.CharField(max_length=50)
+    sexo = models.CharField(max_length=1)
+    habitacion = models.CharField(max_length=10)
+    fecha_salida=models.DateTimeField()
+    novedades = models.TextField()
+    enfermeras = models.ManyToManyField(Enfermera)
+    medicacion= models.ManyToManyField(Medicacion)
+
+    class Meta:
+        verbose_name="paciente"
+        verbose_name_plural="pacientes"
+    def __str__(self):
+        return self.nombres + " " + self.apellidos
+
+
