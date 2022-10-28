@@ -7,5 +7,35 @@
 {% block title %}Medicinas | MediPlanner{% endblock %}
 
 {% block content %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Invima</th>
+            <th>Descripción</th>
+            <th>Via de administración</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for medicina in medicinas %}
+        <tr>
+            <td data-label="Nombre">{{medicina.nombre}}</td>
+            <td data-label="Cantidad">{{medicina.cantidad}}</td>
+            <td data-label="Invima">{{medicina.invima}}</td>
+            <td data-label="Descripción">{{medicina.descripcion}}</td>
+            <td data-label="Via_administracion">{{medicina.via_administracion}}</td>
+            <!-- <td data-label="None"><img src="{% static 'MediPlannerApp/img/nurse-table.svg' %}" alt=""></td> -->
+            <td>
+                <a style="margin-right: 30px;" href="{% url 'eliminarMedicina' medicina.id %}">Eliminar</a>
+                <a style="margin-right: 30px;" href="{% url 'editarMedicina' medicina.id %}">Editar</a>
+            </td>
+        </tr>
+        {% endfor%}
+    </tbody>
+</table>
 
+<div class="text-center">
+    <a href="{% url 'añadirMedicina' %}"><button type="button" class="btn btn-primary">Añadir medicamento</button></a>
+</div>
 {% endblock %}

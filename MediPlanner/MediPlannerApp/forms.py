@@ -1,6 +1,19 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Enfermera, Paciente
+from .models import Enfermera, Paciente, Medicina
+
+class MedicinaForm(ModelForm):
+    class Meta:
+        model= Medicina
+        fields = ('nombre','cantidad','invima','descripcion','via_administracion')
+
+        widgets ={
+            'nombre': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre'}),
+            'cantidad': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Cantidad'}),
+            'invima': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Invima'}),
+            'descripcion': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Descripción'}),
+            'via_administracion': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Via de administración'}),
+        }
 
 class EnfermeraForm(ModelForm):
     class Meta:

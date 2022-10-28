@@ -38,33 +38,21 @@ class Enfermera(models.Model):
     def __str__(self):
         return self.nombres
 
-class Medicamento(models.Model):
+class Medicina(models.Model):
     nombre = models.CharField(max_length=70)
     cantidad = models.CharField(max_length=10)
     invima = models.IntegerField()
     descripcion = models.CharField(max_length=100)
-    via_administración = models.CharField(max_length=40)
-    ubicacion = models.CharField(max_length=40)
+    via_administracion = models.CharField(max_length=40)
 
     class Meta:
-        verbose_name="medicamento"
-        verbose_name_plural="medicamentos"
+        verbose_name="medicina"
+        verbose_name_plural="medicinas"
     def __str__(self):
         return self.nombre + " " + self.cantidad
 
-class Seguimiento(models.Model):
-    fecha=models.DateTimeField(auto_now_add=True)
-    descripcion = models.TextField()
-
-    class Meta:
-        verbose_name="seguimiento"
-        verbose_name_plural="seguimiento"
-    def __str__(self):
-        return self.fecha
-
 class Medicacion(models.Model):
-    medicamento = models.ManyToManyField(Medicamento)
-    seguimiento = models.ManyToManyField(Seguimiento)
+    medicina = models.ManyToManyField(Medicina)
     hora = models.TimeField()
     dosis = models.CharField(max_length=50)
 
@@ -72,7 +60,7 @@ class Medicacion(models.Model):
         verbose_name="medicacion"
         verbose_name_plural="medicacion"
     def __str__(self):
-        return self.medicamento + ", " + self.dosis
+        return self.medicina + ", " + self.dosis
 
 class Paciente(models.Model):
     cedula = models.IntegerField(primary_key=True)
@@ -83,7 +71,7 @@ class Paciente(models.Model):
     fecha_salida=models.DateTimeField()
     novedades = models.TextField()
     enfermeras = models.ManyToManyField(Enfermera)
-    medicacion= models.ManyToManyField(Medicacion)
+    medicina= models.ManyToManyField(Medicina)
 
     class Meta:
         verbose_name="paciente"
@@ -92,3 +80,13 @@ class Paciente(models.Model):
         return self.nombres + " " + self.apellidos
 
 
+class Seguimiento(models.Model):
+    fecha=models.DateTimeField(auto_now_add=True)
+    descripcion = models.TextField()
+    paciente = models.ManyToManyField(Paciente)
+
+    class Meta:
+        verbose_name="seguimiento"
+        verbose_name_plural="seguimiento"
+    def __str__(self):
+        return self.fecha

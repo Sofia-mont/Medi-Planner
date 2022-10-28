@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import JefeEnfermeras, Enfermera, Turno, Paciente, Medicamento
+from .models import JefeEnfermeras, Enfermera, Turno, Paciente, Medicina
 
 # Register your models here.
 
@@ -7,4 +7,4 @@ admin.site.register(Enfermera)
 admin.site.register(JefeEnfermeras)
 admin.site.register(Turno)
 admin.site.register(Paciente)
-admin.site.register(Medicamento)
+admin.site.register(Medicina)
