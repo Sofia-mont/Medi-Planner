@@ -144,3 +144,9 @@ def eliminarEnfermera(request, cedula):
     }
     return render(request, 'MediPlannerApp/eliminar.html', context)
 
+#revisar
+def Suministro_Medicamento(request):
+    Dosis = Suministro_Medicamento.objects.filter(dosis)
+    Paciente = Paciente.objects.filter(nombre)
+    return render(request, "'MediPlannerApp/datos.html")
+

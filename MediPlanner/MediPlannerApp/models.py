@@ -79,14 +79,21 @@ class Paciente(models.Model):
     def __str__(self):
         return self.nombres + " " + self.apellidos
 
+#solucionar relacionamiento de campos
 
-class Seguimiento(models.Model):
-    fecha=models.DateTimeField(auto_now_add=True)
-    descripcion = models.TextField()
-    paciente = models.ManyToManyField(Paciente)
+class Suministro_Medicamento(models.Model):
+    Id_suministroMedicamento = models.IntegerField(primary_key=True)
+    Id_paciente = models.IntegerField()
+    Id_Medicamento = models.IntegerField()
+    hora_Medicacion = models.TimeField()
+    dosis = models.CharField(max_length=50)
 
     class Meta:
-        verbose_name="seguimiento"
-        verbose_name_plural="seguimiento"
+        verbose_name="Suministro_Medicamento"
+        verbose_name_plural="Suministro_Medicamentos"
     def __str__(self):
-        return self.fecha
+        return self.hora_Medicacion + ", " + self.dosis
+
+class Dosis_Paciente(models.Model):
+    Dosis = models.ForiegnKey(Suministro_Medicamento, on_delete=models.CASCADE)
+    Paciente = models.ForiegnKey(Paciente, on_delete=models.CASCADE, related_name="pacientes")
