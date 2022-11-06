@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{% static 'MediPlannerApp/css/table.css'%}">
 {% endblock %}
 
-{% block title %}Enfermeras | MediPlanner{% endblock %}
+{% block title %}Enfermeras | MediPlanner {% endblock %}
 
 {% block content %}
 
@@ -15,19 +15,28 @@
             <th>Nombre</th>
             <th>Cedula</th>
             <th>Turno</th>
-            <th>Estado</th>
-            <th>None</th>
+            <th>Telefono</th>
         </tr>
     </thead>
     <tbody>
+        {% for enfermera in enfermeras %}
         <tr>
-            <td data-label="Nombre">T</td>
-            <td data-label="Cedula">S</td>
-            <td data-label="Turno">E</td>
-            <td data-label="Estado">61</td>
-            <td data-label="None"><img src="{% static 'MediPlannerApp/img/nurse-table.svg' %}" alt=""></td>
+            <td data-label="Nombre">{{enfermera.nombres}} {{enfermera.apellidos}}</td>
+            <td data-label="Cedula">{{enfermera.cedula}}</td>
+            <td data-label="Turno">{% for turnos in enfermera.turno.all %}{{turnos.ingreso}}-{{turnos.salida}}{% if not forloop.last %} | {% endif %}{% endfor %}</td>
+            <td data-label="Telefono">{{enfermera.telefono}}</td>
+            <!-- <td data-label="None"><img src="{% static 'MediPlannerApp/img/nurse-table.svg' %}" alt=""></td> -->
+            <td>
+                <a style="margin-right: 30px;" href="{% url 'eliminarEnfermera' enfermera.cedula %}">Eliminar</a>
+                <a style="margin-right: 30px;" href="{% url 'editarEnfermera' enfermera.cedula %}">Editar</a>
+            </td>
         </tr>
+        {% endfor%}
     </tbody>
 </table>
+
+<div class="text-center">
+    <a href="{% url 'añadirEnfermera' %}"><button type="button" class="btn btn-primary">Añadir enfermera</button></a>
+</div>
 
 {% endblock %}

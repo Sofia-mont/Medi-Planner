@@ -1,0 +1,29 @@
+{% extends 'MediPlannerApp/base.html'%}
+{% load static %}
+
+{% block cssLinks%}
+
+{% endblock %}
+
+{% block title %}Eliminar{% endblock %}
+
+{% block content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <br><br>
+    <div class="alert alert-danger" role="alert">
+        ¿Estás seguro que quieres eliminar " {{ enfermera.nombres }} {{enfermera.apellidos}}{{ paciente.nombres }} {{paciente.apellidos}} "?
+    </div>
+    
+    <p>
+        <a href="{% url 'index' %}">Volver</a>
+    </p>
+
+    <p>
+        <input class="btn btn-danger" type="submit" value="Confirmar">
+    </p>
+</form>
+
+{% endblock %}
