@@ -51,17 +51,6 @@ class Medicina(models.Model):
     def __str__(self):
         return self.nombre + " " + self.cantidad
 
-class Medicacion(models.Model):
-    medicina = models.ManyToManyField(Medicina)
-    hora = models.TimeField()
-    dosis = models.CharField(max_length=50)
-
-    class Meta:
-        verbose_name="medicacion"
-        verbose_name_plural="medicacion"
-    def __str__(self):
-        return self.medicina + ", " + self.dosis
-
 class Paciente(models.Model):
     cedula = models.IntegerField(primary_key=True)
     nombres = models.CharField(max_length=50)
@@ -69,22 +58,18 @@ class Paciente(models.Model):
     sexo = models.CharField(max_length=1)
     habitacion = models.CharField(max_length=10)
     fecha_salida=models.DateTimeField()
-    novedades = models.TextField()
+    novedades = models.CharField(max_length=1000)
     enfermeras = models.ManyToManyField(Enfermera)
-    medicina= models.ManyToManyField(Medicina)
 
     class Meta:
         verbose_name="paciente"
         verbose_name_plural="pacientes"
     def __str__(self):
-        return self.nombres + " " + self.apellidos
-
-#solucionar relacionamiento de campos
+        return str(self.cedula)
 
 class Suministro_Medicamento(models.Model):
-    Id_suministroMedicamento = models.IntegerField(primary_key=True)
-    Id_paciente = models.IntegerField()
-    Id_Medicamento = models.IntegerField()
+    id_paciente = models.ManyToManyField(Paciente)
+    id_Medicamento = models.ManyToManyField(Medicina)
     hora_Medicacion = models.TimeField()
     dosis = models.CharField(max_length=50)
 
@@ -93,7 +78,3 @@ class Suministro_Medicamento(models.Model):
         verbose_name_plural="Suministro_Medicamentos"
     def __str__(self):
         return self.hora_Medicacion + ", " + self.dosis
-
-class Dosis_Paciente(models.Model):
-    Dosis = models.ForiegnKey(Suministro_Medicamento, on_delete=models.CASCADE)
-    Paciente = models.ForiegnKey(Paciente, on_delete=models.CASCADE, related_name="pacientes")
