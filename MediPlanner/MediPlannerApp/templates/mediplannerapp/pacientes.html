@@ -1,0 +1,44 @@
+{% extends 'MediPlannerApp/base.html' %}
+{% load static %}
+
+{% block cssLinks%}
+<<<<<<< HEAD
+<link rel="stylesheet" href="{% static 'MediPlannerApp/css/table.css'%}">
+=======
+
+>>>>>>> 5e5ab5969b9d4d951d94ae1e30f584f8f6353b24
+{% endblock %}
+
+{% block title %}Pacientes | MediPlanner{% endblock %}
+
+{% block content %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Cedula</th>
+            <th>Habitación</th>
+            <th>Genero</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for paciente in pacientes %}
+        <tr>
+            <td data-label="Nombre">{{paciente.nombres}} {{paciente.apellidos}}</td>
+            <td data-label="Cedula">{{paciente.cedula}}</td>
+            <td data-label="Habitación">{{paciente.habitacion}}</td>
+            <td data-label="Genero">{{paciente.sexo}}</td>
+            <td>
+                <a style="margin-right: 30px;" href="{% url 'eliminarPaciente' paciente.cedula %}">Eliminar</a>
+                <a style="margin-right: 30px;" href="{% url 'editarPaciente' paciente.cedula %}">Editar</a>
+                <a style="margin-right: 30px;" href="detalle/{{paciente.cedula}}">Ver mas...</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="text-center">
+    <a href="{% url 'añadirPaciente' %}"><button type="button" class="btn btn-primary">Añadir paciente</button></a>
+</div>
+{% endblock %}
