@@ -66,7 +66,7 @@ class paciente_info(generic.DetailView):
     def get_context_data(self, *args, **kwargs):
         paciente= Paciente.objects.all()
         context = super(paciente_info, self).get_context_data(*args, **kwargs)
-        context['medicamentos'] = Medicamento.objects.filter(cedula=self.object)
+        context['medicamentos'] = Medicamento.objects.filter(cedula=self.object).order_by("hora")
         context['novedades'] = Novedades.objects.filter(paciente=self.object)
         return context
 
