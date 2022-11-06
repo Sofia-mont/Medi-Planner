@@ -1,47 +1,53 @@
-{% extends 'MediPlannerApp/base.html'%}
-{% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block cssLinks%}
-<link rel="stylesheet" href="{% static 'MediPlannerApp/css/style.css'%}">
-{% endblock %}
-
-{% block title %}Login{% endblock %}
-
-{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d4662f63fb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
 
 <body>
-
+    <img src="img/wave-haikei.png" alt="" class="wave">
+    
     <div class="container">
-        <div class="login-container">
-            <h2>Bienvenido a Medi-Planner</h2> 
-            <form action="index.html"> 
+        <div class="img">
+            <img src="img/ilustracion-concepto-acceder-al-perfil-movil_114360-83.png" alt="">
+        </div>
+
+        <div class="login-content">
+            <form action="index.html">
+                <img src="img/avatar.png" alt="" class="avatar">
+                <h2 class="tittle">Bienvenido</h2>
+
                 <div class="input-div one">
                     <div class="i">
                         <i class="fas fa-user"></i>
                     </div>
-                    <div>
+                    <div class="div">
                         <h5>Usuario</h5>
-                        <input placeholder="Usuario" type="text" class="input">
+                        <input type="text" class="input">
                     </div>
                 </div>
                 <div class="input-div two">
                     <div class="i">
                         <i class="fas fa-lock"></i>
                     </div>
-
-                    <div>
+                    <div class="div">
                         <h5>Contraseña</h5>
-                        <input placeholder="Contraseña" type="password" class="input">
+                        <input type="password" class="input">
                     </div>
                 </div>
-
-                <input type="submit" class="btn" value="Login">
-
-                <a href="">Olvidaste tu contraseña?</a>
+                <a href="#">Olvidaste tu contraseña</a>
+                <input type="submit" class="btn" value="login">
             </form>
         </div>
     </div>
-    <!-- <script src="../js/index.js"></script> -->
+    <script src="js/app.js"></script>
+
 </body>
 
-{% endblock %}
+</html>

@@ -1,56 +1,61 @@
-:root {
-    --primary: #55ad9d;
-    --light: #29626a;
-    --dark: #0f4456;
-}
-
 * {
-    margin: 0;
     padding: 0;
+    margin-top: 0;
     box-sizing: border-box;
-    font-family: 'Fira sans', sans-serif;
 }
 
-body{
-    background-color: #031f2983;
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.wave {
+    position: fixed;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: -1;
 }
 
 .container {
-    width: 60vh;
-    height: 70vh;
-    display: flex;
+    width: 100vh;
+    height: 100vh;
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 7rem;
     padding: 0 2rem;
-    justify-content: center;
-    margin: 80px auto;
-    border-radius: 30px;
-    border-style: solid;
-    border-color: var(--dark);
-    -webkit-box-shadow: 10px 10px 7px -2px rgb(3, 25, 38); 
-    box-shadow: 10px 12px 7px -2px rgb(3, 25, 38);
-    background-color: white;
-    }
+}
 
+.img {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
 
-.login-container {
+.img img {
+
+    width: 800px;
+    /* opacity: 70%; */
+}
+
+.login-content {
     display: flex;
     align-items: center;
     text-align: center;
-    position: relative;
-}
-  
-.login-container h2{
-    font-size: 25px;
-    text-transform: uppercase;
-    color:var(--dark);
-    margin: 15px;
-    position: absolute;
-    top: 50px;
 }
 
 form {
-    width: 360px;
+    width: 400px;
+}
+
+.avatar {
+    width: 140px;
+}
+
+form h2 {
+    font-size: 2.9rem;
+    text-transform: uppercase;
+    margin: 15px 0;
+    color: #333;
 }
 
 .input-div {
@@ -59,42 +64,11 @@ form {
     grid-template-columns: 7% 93%;
     margin: 25px 0;
     padding: 5px 0;
-    border-bottom: 2px solid var(--primary);
-}
-
-.input-div:after, .input-div:before {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary);
-    transition: .3s;
-}
-
-.input-div:after {
-    right: 50%;
-}
-
-.input-div:before {
-    left: 50%;
-}
-
-.input-div.focus .i i {
-    color: var(--primary);
-}
-
-.input-div.focus div h5 {
-    top: -5px;
-    font-size: 15px;
-}
-
-.input-div.focus:after, .input-div.focus:before {
-    width: 50%;
+    border-bottom: 2px solid #d9d9d9;
 }
 
 .input-div.one {
-    margin-top: 60px;
+    margin-top: 0;
 }
 
 .input-div.two {
@@ -108,8 +82,7 @@ form {
 }
 
 .i i {
-    color: var(--light);
-    transition: .3s
+    color: #d9d9d9;
 }
 
 .input-div>div {
@@ -122,10 +95,9 @@ form {
     left: 10px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--light);
-    font-size: 18px;
-    display: none;
+    color: #999;
     transition: .3s;
+    text-transform: uppercase;
 }
 
 .input {
@@ -139,45 +111,74 @@ form {
     background: none;
     padding: 0.5rem 0.7rem;
     font-size: 1.2rem;
-    color: var(--dark);
-    font-family: 'Fira sans', sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #555;
 }
 
-a{
+a {
     display: block;
-    text-align: center;
+    text-align: right;
     text-decoration: none;
-    color: var(--dark);
+    color: #999;
     font-size: 0.9rem;
     transition: .3s;
-    text-transform: uppercase;
 }
 
-a:hover{
-    color: var(--primary);
+a:hover {
+    color: aquamarine;
 }
 
 .btn {
-    display: flex;
-    width: 50%;
+    display: block;
+    width: 100%;
     height: 50px;
     border-radius: 25px;
-    margin: 40px auto 60px auto;
+    margin: 1rem 0;
     font-size: 1.2rem;
     outline: none;
     border: none;
-    background: rgb(3, 25, 38);
-    background: linear-gradient(90deg, rgba(3, 25, 38, 1) 0%, rgba(119, 172, 162, 1) 49%, rgba(70, 129, 137, 1) 100%);
+    background-image: linear-gradient(to right, rgb(0, 132, 255), rgb(127, 200, 255), rgb(0, 68, 255));
     cursor: pointer;
     color: white;
     text-transform: uppercase;
-    font-family: 'Fira sans', sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-size: 200%;
     transition: .5s;
-   justify-content: center;
 }
 
 .btn:hover {
     background-position: right;
 }
 
+.input-div.focus .i i {
+    color: rgb(0, 132, 255);
+}
+
+.input-div.focus div h5 {
+    top: -5px;
+    font-size: 15px;
+}
+
+.input-div::after,
+.input-div::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: rgb(0, 132, 255);
+    transition: .3s;
+}
+
+.input-div::after {
+    right: 50%;
+}
+
+.input-div::before {
+    left: 50%;
+}
+
+.input-div.focus::after,
+.input-div.focus::before {
+    width: 50%;
+}
