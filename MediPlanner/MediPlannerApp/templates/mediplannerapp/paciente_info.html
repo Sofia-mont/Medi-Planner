@@ -1,0 +1,33 @@
+{% extends 'MediPlannerApp/base.html' %}
+{% load static %}
+
+{% block cssLinks%}
+<link rel="stylesheet" href="info.css">
+{% endblock %}
+
+{% block title %} {{paciente.nombres}} {{paciente.apellidos}} {% endblock %}
+
+{% block content %}
+    <div class="post">
+        <div class="img"><img src="img/namione.jpg" alt=""></div>
+        <div class="info">
+            <h1 class="titulo">{{paciente.nombres}} {{paciente.apellidos}}</h1>
+            <div class="info-paciente">Identificacion: {{paciente.cedula}} <br> <br>
+                Celular: -------- <br> <br>
+                Edad: --
+                <br> <br>
+            </div>
+            <h1>MEDICAMENTOS A SUMINISTRAR</h1>
+            {% for medicamento in medicamentos %}
+            <p>{{medicamento.dosis}}</p>
+            {% endfor %}
+
+            <h1>NOVEDADES</h1>
+            {% for novedad in novedades %}
+            <p>{{novedad.descripcion}}</p>
+            {% endfor %}
+
+
+        </div>
+    </div>
+{% endblock %}

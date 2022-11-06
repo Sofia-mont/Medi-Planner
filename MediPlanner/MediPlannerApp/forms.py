@@ -32,7 +32,7 @@ class EnfermeraForm(ModelForm):
 class PacienteForm(ModelForm):
     class Meta:
         model = Paciente
-        fields = ('cedula','nombres', 'apellidos', 'sexo', 'habitacion', 'fecha_salida', 'novedades', 'enfermeras')
+        fields = ('cedula','nombres', 'apellidos', 'sexo', 'habitacion', 'fecha_salida', 'enfermeras')
 
         widgets = {
             'cedula': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Cedula'}),
@@ -41,6 +41,5 @@ class PacienteForm(ModelForm):
             'sexo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Sexo'}),
             'habitacion': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Habitacion'}),
             'fecha_salida': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'FechaSalida'}),
-            'novedades': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Novedades'}),
             'enfermeras': forms.CheckboxSelectMultiple(attrs={'class': 'form-control', 'placeholder': 'Enfermeras'}),
         }

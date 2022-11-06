@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block cssLinks%}
+
 {% endblock %}
 
 {% block title %}Pacientes | MediPlanner{% endblock %}
@@ -13,9 +14,7 @@
             <th>Nombre</th>
             <th>Cedula</th>
             <th>Habitación</th>
-            <th>Celular</th>
             <th>Genero</th>
-            <th>None</th>
         </tr>
     </thead>
     <tbody>
@@ -23,13 +22,12 @@
         <tr>
             <td data-label="Nombre">{{paciente.nombres}} {{paciente.apellidos}}</td>
             <td data-label="Cedula">{{paciente.cedula}}</td>
-            <td data-label="Edad">{{paciente.}}</td>
-            <td data-label="Celular">{{paciente.habitacion}}</td>
+            <td data-label="Habitación">{{paciente.habitacion}}</td>
             <td data-label="Genero">{{paciente.sexo}}</td>
-            <!-- <td data-label="None"><img src="{% static 'MediPlannerApp/img/patient.svg' %}" alt=""></td> -->
             <td>
                 <a style="margin-right: 30px;" href="{% url 'eliminarPaciente' paciente.cedula %}">Eliminar</a>
                 <a style="margin-right: 30px;" href="{% url 'editarPaciente' paciente.cedula %}">Editar</a>
+                <a style="margin-right: 30px;" href="detalle/{{paciente.cedula}}">Ver mas...</a>
             </td>
         </tr>
         {% endfor %}

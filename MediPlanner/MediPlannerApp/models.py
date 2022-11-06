@@ -51,17 +51,6 @@ class Medicina(models.Model):
     def __str__(self):
         return self.nombre + " " + self.cantidad
 
-class Medicacion(models.Model):
-    medicina = models.ManyToManyField(Medicina)
-    hora = models.TimeField()
-    dosis = models.CharField(max_length=50)
-
-    class Meta:
-        verbose_name="medicacion"
-        verbose_name_plural="medicacion"
-    def __str__(self):
-        return self.medicina + ", " + self.dosis
-
 class Paciente(models.Model):
     cedula = models.IntegerField(primary_key=True)
     nombres = models.CharField(max_length=50)
@@ -69,31 +58,33 @@ class Paciente(models.Model):
     sexo = models.CharField(max_length=1)
     habitacion = models.CharField(max_length=10)
     fecha_salida=models.DateTimeField()
-    novedades = models.TextField()
     enfermeras = models.ManyToManyField(Enfermera)
-    medicina= models.ManyToManyField(Medicina)
 
     class Meta:
         verbose_name="paciente"
         verbose_name_plural="pacientes"
     def __str__(self):
-        return self.nombres + " " + self.apellidos
+        return str(self.cedula)
 
-#solucionar relacionamiento de campos
-
-class Suministro_Medicamento(models.Model):
-    Id_suministroMedicamento = models.IntegerField(primary_key=True)
-    Id_paciente = models.IntegerField()
-    Id_Medicamento = models.IntegerField()
-    hora_Medicacion = models.TimeField()
+class Medicamento(models.Model):
+    cedula = models.ManyToManyField(Paciente)
+    medicamento = models.ManyToManyField(Medicina)
+    hora = models.TimeField()
     dosis = models.CharField(max_length=50)
 
     class Meta:
-        verbose_name="Suministro_Medicamento"
-        verbose_name_plural="Suministro_Medicamentos"
+        verbose_name="Medicamento"
+        verbose_name_plural="Medicamentos"
     def __str__(self):
-        return self.hora_Medicacion + ", " + self.dosis
+        return self.dosis
 
-class Dosis_Paciente(models.Model):
-    Dosis = models.ForiegnKey(Suministro_Medicamento, on_delete=models.CASCADE)
-    Paciente = models.ForiegnKey(Paciente, on_delete=models.CASCADE, related_name="pacientes")
+class Novedades(models.Model):
+    paciente= models.ManyToManyField(Paciente)
+    fecha = models.DateTimeField(auto_now_add=True)
+    descripcion = models.TextField()
+
+    class Meta:
+        verbose_name="novedad"
+        verbose_name_plural="novedades"
+    def __str__(self):
+        return self.descripcion
