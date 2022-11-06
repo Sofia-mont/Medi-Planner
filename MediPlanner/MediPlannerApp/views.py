@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import Enfermera, Paciente, Medicina, JefeEnfermeras, Turno
+from .models import Enfermera, Paciente, Medicina, JefeEnfermeras, Medicamento, Novedades
 from .forms import EnfermeraForm, PacienteForm, MedicinaForm
 from django.views import generic
 # Create your views here.
@@ -60,6 +60,13 @@ def pacientes(request):
 class paciente_info(generic.DetailView):
     model = Paciente
     template_name ="MediPlannerApp/paciente_info.html"
+
+    def get_context_data(self, *args, **kwargs):
+        paciente= Paciente.objects.all()
+        context = super(paciente_info, self).get_context_data(*args, **kwargs)
+        context['medicamentos'] = Medicamento.objects.filter(cedula=self.object)
+        context['novedades'] = Novedades.objects.filter(paciente=self.object)
+        return context
 
 def añadirPaciente(request):
     form = PacienteForm()
@@ -148,8 +155,3 @@ def eliminarEnfermera(request, cedula):
         'enfermera': enfermera,
     }
     return render(request, 'MediPlannerApp/eliminar.html', context)
-
-def Suministro_Medicamento(request):
-    medicamento = Suministro_Medicamento.objects.all()
-    return render(request, "MediPlannerApp/datos.html", {'medicamento':medicamento})
-

@@ -17,7 +17,17 @@
                 Edad: --
                 <br> <br>
             </div>
-            <div class="link"><a href="#">Ver Medicamentos del paciente</a></div>
+            <h1>MEDICAMENTOS A SUMINISTRAR</h1>
+            {% for medicamento in medicamentos %}
+            <p>{{medicamento.dosis}}</p>
+            {% endfor %}
+
+            <h1>NOVEDADES</h1>
+            {% for novedad in novedades %}
+            <p>{{novedad.descripcion}}</p>
+            {% endfor %}
+
+
         </div>
     </div>
 {% endblock %}

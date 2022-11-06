@@ -58,7 +58,6 @@ class Paciente(models.Model):
     sexo = models.CharField(max_length=1)
     habitacion = models.CharField(max_length=10)
     fecha_salida=models.DateTimeField()
-    novedades = models.CharField(max_length=1000)
     enfermeras = models.ManyToManyField(Enfermera)
 
     class Meta:
@@ -67,14 +66,25 @@ class Paciente(models.Model):
     def __str__(self):
         return str(self.cedula)
 
-class Suministro_Medicamento(models.Model):
-    id_paciente = models.ManyToManyField(Paciente)
-    id_Medicamento = models.ManyToManyField(Medicina)
-    hora_Medicacion = models.TimeField()
+class Medicamento(models.Model):
+    cedula = models.ManyToManyField(Paciente)
+    medicamento = models.ManyToManyField(Medicina)
+    hora = models.TimeField()
     dosis = models.CharField(max_length=50)
 
     class Meta:
-        verbose_name="Suministro_Medicamento"
-        verbose_name_plural="Suministro_Medicamentos"
+        verbose_name="Medicamento"
+        verbose_name_plural="Medicamentos"
     def __str__(self):
-        return self.hora_Medicacion + ", " + self.dosis
+        return self.dosis
+
+class Novedades(models.Model):
+    paciente= models.ManyToManyField(Paciente)
+    fecha = models.DateTimeField(auto_now_add=True)
+    descripcion = models.TextField()
+
+    class Meta:
+        verbose_name="novedad"
+        verbose_name_plural="novedades"
+    def __str__(self):
+        return self.descripcion
