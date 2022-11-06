@@ -3,6 +3,8 @@ from .models import Enfermera, Paciente, Medicina, JefeEnfermeras, Medicamento, 
 from .forms import EnfermeraForm, PacienteForm, MedicinaForm
 from django.views import generic
 # Create your views here.
+def login(request):
+    return render(request, "MediPlannerApp/index-login.html")
 
 def index(request):
     return render(request, "MediPlannerApp/index.html")
