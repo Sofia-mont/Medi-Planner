@@ -1,0 +1,69 @@
+{% extends 'MediPlannerApp/base.html' %}
+{% load static %}
+
+{% block cssLinks%}
+<link rel="stylesheet" href="{% static 'MediPlannerApp/css/paciente.css' %}">
+{% endblock %}
+
+{% block title %} {{paciente.nombres}} {{paciente.apellidos}} | Medi-Planner {% endblock %}
+
+{% block content %}
+<div class="post">
+    <h1 class="titulo">{{paciente.nombres}} {{paciente.apellidos}}</h1>
+    <div class="img"><img src="img/namione.jpg" alt=""></div>
+    <h1 class="Sala">Sala {{paciente.habitacion}}</h1>
+    <h2>Datos Personales</h2>
+    <div class="info">
+        <h4>Identificacion: {{paciente.cedula}}</h4>
+        <h4>Genero: {{paciente.sexo}}</h4>
+        <h4>Fecha de alta: {{paciente.fecha_salida}}</h4>
+        <h4>Enfermera/s a cargo: {% for enf in paciente.enfermeras.all %}{{enf.nombres}} {{enf.apellidos}}{% if not forloop.last %}, {% endif %}{% endfor %}</h4>
+    </div>
+</div>
+
+<h2>Medicinas de suministro</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Dosis a suministrar</th>
+            <th>Hora de suministración</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for medicamento in medicamentos %}
+        <tr>
+            <td data-label="Nombre">{% for medicina in medicamento.medicamento.all %}{{medicina.nombre}}{% endfor %}</td>
+            <td data-label="Dosis">{{medicamento.dosis}}</td>
+            <td data-label="Hora">{{medicamento.hora}}</td>
+            <td>
+                <a style="margin-right: 30px;" href="{% url 'eliminarMedicina' medicamento.id %}">Eliminar</a> <!--FALTA POR PROGRAMAR-->
+                <a style="margin-right: 30px;" href="{% url 'editarMedicina' medicamento.id %}">Editar</a> <!--FALTA POR PROGRAMAR--> 
+            </td>
+        </tr>
+        {% endfor%}
+    </tbody>
+</table>
+
+<h2>Novedades</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Fecha de creación</th>
+            <th>Novedad</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for novedad in novedades %}
+        <tr>
+            <td data-label="Fecha">{{novedad.fecha}}</td>
+            <td data-label="Novedad">{{novedad.descripcion}}</td>
+            <td>
+                <a style="margin-right: 30px;" href="">Eliminar</a> <!--FALTA POR PROGRAMAR-->
+                <a style="margin-right: 30px;" href="">Editar</a> <!--FALTA POR PROGRAMAR--> 
+            </td>
+        </tr>
+        {% endfor%}
+    </tbody>
+</table>
+{% endblock %}

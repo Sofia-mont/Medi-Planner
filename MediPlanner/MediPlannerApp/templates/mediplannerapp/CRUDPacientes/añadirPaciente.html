@@ -1,0 +1,48 @@
+{% extends 'MediPlannerApp/base.html'%}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block cssLinks%}
+
+{% endblock %}
+
+{% block title %}Añadir paciente | Medi-Planner{% endblock %}
+
+{% block content %}
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  
+  <div class="form-group">
+    <label for="cedula" class="txt_negrita">Cédula</label>
+    {{ form.cedula|add_class:"form-control" }}
+  </div>
+  <div class="form-group">
+    <label for="nombres" class="txt_negrita">Nombres</label>
+    {{ form.nombres|add_class:"form-control" }}
+  </div>
+  <div class="form-group">
+    <label for="apellidos" class="txt_negrita">Apellidos</label>
+    {{ form.apellidos|add_class:"form-control" }}
+  </div>
+  <div class="form-group">
+    <label for="sexo" class="txt_negrita">Sexo</label>
+    {{ form.sexo|add_class:"form-control" }}
+  </div>
+  <div class="form-group">
+    <label for="habitacion" class="txt_negrita">Habitación</label>
+    {{ form.habitacion|add_class:"form-control" }}
+  </div>
+  <div class="form-group">
+    <label for="fecha_salida" class="txt_negrita">Fecha de alta</label>
+    {{ form.fecha_salida|add_class:"form-control"|attr:"type:date" }}
+  </div>
+  <div class="form-group">
+    <label for="enfermeras" class="txt_negrita">Enfermeras a cargo</label>
+    {{ form.enfermeras|add_class:"form-control"|attr:"type:checkbox" }}
+  </div>
+ 
+  <button type="submit" class="btn btn-primary">Aceptar</button>
+  <a href="../" type="submit" class="btn btn-primary">Volver</a>
+</form>
+{% endblock %}
