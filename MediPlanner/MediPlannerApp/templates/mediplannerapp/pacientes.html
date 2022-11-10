@@ -2,11 +2,7 @@
 {% load static %}
 
 {% block cssLinks%}
-<<<<<<< HEAD
 <link rel="stylesheet" href="{% static 'MediPlannerApp/css/table.css'%}">
-=======
-
->>>>>>> 5e5ab5969b9d4d951d94ae1e30f584f8f6353b24
 {% endblock %}
 
 {% block title %}Pacientes | MediPlanner{% endblock %}
@@ -19,6 +15,7 @@
             <th>Cedula</th>
             <th>Habitación</th>
             <th>Genero</th>
+            <th>Opcion</th>
         </tr>
     </thead>
     <tbody>
@@ -28,7 +25,7 @@
             <td data-label="Cedula">{{paciente.cedula}}</td>
             <td data-label="Habitación">{{paciente.habitacion}}</td>
             <td data-label="Genero">{{paciente.sexo}}</td>
-            <td>
+            <td data-label="Opcion">
                 <a style="margin-right: 30px;" href="{% url 'eliminarPaciente' paciente.cedula %}">Eliminar</a>
                 <a style="margin-right: 30px;" href="{% url 'editarPaciente' paciente.cedula %}">Editar</a>
                 <a style="margin-right: 30px;" href="detalle/{{paciente.cedula}}">Ver mas...</a>

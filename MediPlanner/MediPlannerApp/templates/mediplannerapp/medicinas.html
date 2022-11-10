@@ -26,7 +26,6 @@
             <td data-label="Invima">{{medicina.invima}}</td>
             <td data-label="Descripción">{{medicina.descripcion}}</td>
             <td data-label="Via_administracion">{{medicina.via_administracion}}</td>
-            <!-- <td data-label="None"><img src="{% static 'MediPlannerApp/img/nurse-table.svg' %}" alt=""></td> -->
             <td>
                 <a style="margin-right: 30px;" href="{% url 'eliminarMedicina' medicina.id %}">Eliminar</a>
                 <a style="margin-right: 30px;" href="{% url 'editarMedicina' medicina.id %}">Editar</a>
@@ -36,8 +35,7 @@
     </tbody>
 </table>
 
-<<<<<<< HEAD
-<table class="table">
+<!-- <table class="table">
     <thead>
         <tr>
             <th>Medicamento</th>
@@ -60,11 +58,6 @@
             <td data-label="Localizacion">Colsubsidio</td>
         </tr>
     </tbody>
-</table>
+</table> -->
 
-=======
-<div class="text-center">
-    <a href="{% url 'añadirMedicina' %}"><button type="button" class="btn btn-primary">Añadir medicamento</button></a>
-</div>
->>>>>>> 5e5ab5969b9d4d951d94ae1e30f584f8f6353b24
 {% endblock %}

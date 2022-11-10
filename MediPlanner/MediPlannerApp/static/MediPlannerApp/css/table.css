@@ -4,55 +4,61 @@
     --dark: #0f4456;
 }
 
-
-.table{
+.table {
     width: 100%;
-    border-collapse: collapse;
+    background-color: aliceblue;
+    position: absolute;
+    top: 100px;
 }
 
-.table td, .table th{
+.table td,
+.table th {
     padding: 12px 15px;
     border: 1px solid #ddd;
     text-align: center;
 }
 
-.table th{
-background-color: var(--dark);
-color: aliceblue;
+.table th {
+    background-color: rgba(0, 27, 53, 0.667);
+    color: aliceblue;
 }
 
-.table tbody tr :nth-child(even){
+.table tbody tr :nth-child(even) {
     background-color: var(--light);
 }
 
-img{
+img {
     width: 30px;
     height: 30px;
     cursor: pointer;
 }
 
 
-@media(max-width: 500px){
-    .table thead{
+@media(max-width: 500px) {
+    .table thead {
         display: none;
     }
-    .table, .table tbody, .table tr, .table td{
+
+    .table,
+    .table tbody,
+    .table tr,
+    .table td {
         display: block;
         width: 100%;
     }
 
-    .table tr{
+    .table tr {
         margin-bottom: 15px;
     }
 
-    .table td{
+    .table td {
         text-align: center;
         padding-left: 50%;
         text-align: right;
         position: relative;
     }
 
-    .table td::before{
+    .table td::before {
         content: attr(data-label);
         position: absolute;
         left: 0;
