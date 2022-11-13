@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,21 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/d4662f63fb.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/MediPlanner/MediPlannerApp/static/MediPlannerApp/css/style.css">
+    <link rel="stylesheet" href="{% static 'MediPlannerApp/css/style.css' %}">
     <title>Document</title>
 </head>
 
 <body>
-    <img src="img/wave-haikei.png" alt="" class="wave">
+    <img src="{% static 'MediPlannerApp/img/wave-haikei.png' %}" alt="" class="wave">
     
     <div class="container">
         <div class="img">
-            <img src="img/ilustracion-concepto-acceder-al-perfil-movil_114360-83.png" alt="">
+            <img src="{% static 'MediPlannerApp/img/ilustracion-concepto-acceder-al-perfil-movil_114360-83.png' %}" alt="">
         </div>
 
         <div class="login-content">
             <form action="index.html">
-                <img src="img/avatar.png" alt="" class="avatar">
+                <img src="{% static 'MediPlannerApp/img/avatar.png' %}" alt="" class="avatar">
                 <h2 class="tittle">Bienvenido</h2>
 
                 <div class="input-div one">

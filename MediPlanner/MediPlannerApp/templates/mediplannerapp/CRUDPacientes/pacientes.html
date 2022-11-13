@@ -1,0 +1,63 @@
+{% extends 'MediPlannerApp/base.html' %}
+{% load static %}
+
+{% block cssLinks%}
+<link rel="stylesheet" href="{% static 'MediPlannerApp/css/table.css'%}">
+{% endblock %}
+
+{% block title %}Pacientes | MediPlanner{% endblock %}
+
+{% block content %}
+
+<table class="table">
+    {% if messages %}
+    <ul class="messages list-group mb-3">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }} list-group-item list-group-item-primary"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Cedula</th>
+            <th>Habitación</th>
+            <th>Genero</th>
+            <th>Opcion</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for paciente in object_list %}
+        <tr> 
+            <td data-label="Nombre">{{paciente.nombres}} {{paciente.apellidos}}</td>
+            <td data-label="Cedula">{{paciente.cedula}}</td>
+            <td data-label="Habitación">{{paciente.habitacion}}</td>
+            <td data-label="Genero">{{paciente.sexo}}</td>
+            <td>
+                <form method="POST" action="eliminarPaciente/{{paciente.cedula}}">
+                    {% csrf_token %}
+                <a style="margin-right: 30px;" href="detalle/{{paciente.cedula}}">Ver</a>
+                <a style="margin-right: 30px;" href="editarPaciente/{{paciente.cedula}}">Editar</a>
+                <button class="btn btn-danger" onclick="return eliminarPaciente();" type="submit">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="text-center">
+    <a href="{% url 'añadirPaciente' %}"><button type="button" class="btn btn-primary">Añadir paciente</button></a>
+</div>
+
+<script type="text/javascript">
+    function eliminarPaciente() {
+      var x = confirm("¿Estás seguro de que desea eliminar este registro?");
+      if (x)
+        return true;
+      else
+        return false;
+    }
+  </script>
+{% endblock %}

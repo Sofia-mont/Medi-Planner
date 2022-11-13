@@ -19,7 +19,7 @@
         </tr>
     </thead>
     <tbody>
-        {% for enfermera in enfermeras %}
+        {% for enfermera in object_list %} 
         <tr>
             <td data-label="Nombre">{{enfermera.nombres}} {{enfermera.apellidos}}</td>
             <td data-label="Cedula">{{enfermera.cedula}}</td>
@@ -27,8 +27,11 @@
             <td data-label="Telefono">{{enfermera.telefono}}</td>
             <!-- <td data-label="None"><img src="{% static 'MediPlannerApp/img/nurse-table.svg' %}" alt=""></td> -->
             <td>
-                <a style="margin-right: 30px;" href="{% url 'eliminarEnfermera' enfermera.cedula %}">Eliminar</a>
-                <a style="margin-right: 30px;" href="{% url 'editarEnfermera' enfermera.cedula %}">Editar</a>
+                <form method="POST" action="eliminarEnfermera/{{enfermera.cedula}}">
+                    {% csrf_token %}
+                <a style="margin-right: 30px;" href="editarEnfermera/{{enfermera.cedula}}">Editar</a>
+                <button class="btn btn-danger" onclick="return eliminarEnfermera();" type="submit">Eliminar</button>
+                </form>
             </td>
         </tr>
         {% endfor%}
@@ -39,4 +42,13 @@
     <a href="{% url 'añadirEnfermera' %}"><button type="button" class="btn btn-primary">Añadir enfermera</button></a>
 </div>
 
+<script type="text/javascript">
+    function eliminarEnfermera() {
+      var x = confirm("¿Estás seguro de que desea eliminar este registro?");
+      if (x)
+        return true;
+      else
+        return false;
+    }
+</script>
 {% endblock %}

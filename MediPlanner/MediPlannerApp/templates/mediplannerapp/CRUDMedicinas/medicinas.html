@@ -1,0 +1,54 @@
+{% extends 'MediPlannerApp/base.html'%}
+{% load static %}
+
+{% block cssLinks%}
+<link rel="stylesheet" href="{% static 'MediPlannerApp/css/table.css'%}">
+{% endblock %}
+
+{% block title %}Medicinas | MediPlanner{% endblock %}
+
+{% block content %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Invima</th>
+            <th>Descripción</th>
+            <th>Via de administración</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for medicina in object_list %}
+        <tr>
+            <td data-label="Nombre">{{medicina.nombre}}</td>
+            <td data-label="Cantidad">{{medicina.cantidad}}</td>
+            <td data-label="Invima">{{medicina.invima}}</td>
+            <td data-label="Descripción">{{medicina.descripcion}}</td>
+            <td data-label="Via_administracion">{{medicina.via_administracion}}</td>
+            <td>
+                <form method="POST" action="eliminarMedicina/{{medicina.id}}">
+                    {% csrf_token %}
+                <a style="margin-right: 30px;" href="editarMedicina/{{medicina.id}}">Editar</a>
+                <button class="btn btn-danger" onclick="return eliminarMedicina();" type="submit">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor%}
+    </tbody>
+</table>
+
+<div class="text-center">
+    <a href="{% url 'añadirMedicina' %}"><button type="button" class="btn btn-primary">Añadir medicamento</button></a>
+</div>
+
+<script type="text/javascript">
+    function eliminarMedicina() {
+      var x = confirm("¿Estás seguro de que desea eliminar este registro?");
+      if (x)
+        return true;
+      else
+        return false;
+    }
+</script>
+{% endblock %}
