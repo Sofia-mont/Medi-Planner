@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;300&display=swap');
+
 * {
     padding: 0;
     margin-top: 0;
@@ -5,7 +7,7 @@
 }
 
 body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Fira Sans', sans-serif;
 }
 
 .wave {
@@ -14,6 +16,8 @@ body {
     top: 0;
     right: 0;
     z-index: -1;
+    opacity: 70%;
+    image-rendering: optimizeQuality;
 }
 
 .container {
@@ -33,7 +37,7 @@ body {
 
 .img img {
 
-    width: 800px;
+    width: 500px;
     /* opacity: 70%; */
 }
 

@@ -1,8 +1,5 @@
-:root {
-    --primary: #55ad9d;
-    --light: #29626a;
-    --dark: #0f4456;
-}
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;300&display=swap');
+
 
 .table {
     width: 100%;
@@ -32,6 +29,40 @@ img {
     height: 30px;
     cursor: pointer;
 }
+/* Medicinas */
+.añadirM{
+    position: relative;
+    top: 300px;
+    text-decoration: none;
+}
+
+
+.añadir{
+    position: relative;
+    top: 300px;
+    text-decoration: none;
+}
+
+.btn{
+    height: 35px;
+    border-radius: 25px;
+    margin: 2rem 0;
+    font-size: 0.7rem;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, rgb(0, 132, 255), rgb(127, 200, 255), rgb(0, 68, 255));
+    cursor: pointer;
+    color: white;
+    text-transform: uppercase;
+    background-size: 200%;
+    transition: .5s;
+    padding: 1em;
+}
+
+.btnP:hover {
+    background-position: right;
+}
+
 
 
 @media(max-width: 500px) {

@@ -42,8 +42,10 @@
     {{ form.enfermeras|add_class:"form-control"|attr:"type:checkbox" }}
   </div>
  
-  <button type="submit" class="btn btn-primary">Aceptar</button>
-  <a href="../" type="submit" class="btn btn-primary">Volver</a>
+  <div>
+    <button type="submit" class="btn">Aceptar</button>
+    <a href="../" type="submit" class="text"><button type="submit" class="btn">Volver</button></a>
+</div>
 </form>
 
 {% endblock %}

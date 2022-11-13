@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;300&display=swap');
+
+body {
+    font-family: 'Fira Sans', sans-serif;
+}
+
+/* Inicio añadir */
+form {
+    border: 2px solid gray;
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+}
+
+.form-group {
+    text-align: center;
+    width: 90%;
+    height: 30px;
+    margin: 1rem;
+}
+
+.head{
+    width: 100%;
+    background-color: rgba(0, 149, 255, 0.233);
+}
+
+.title{
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+
+.txt_negrita {
+    font-size: 17px;
+    margin-right: 50px;
+    justify-content: left;
+    font-weight: 400;
+}
+
+.buttons{
+    margin-top: 35px;
+}
+
+.btn{
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+    margin: 2rem 0 1rem 2rem;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, rgb(0, 132, 255), rgb(127, 200, 255), rgb(0, 68, 255));
+    cursor: pointer;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-size: 200%;
+    transition: .5s;
+}
+
+.btn:hover {
+    background-position: right;
+}
+
+/* Fin añadir */
+
+/* Inicio editar */
+
+
+/* Fin editar */

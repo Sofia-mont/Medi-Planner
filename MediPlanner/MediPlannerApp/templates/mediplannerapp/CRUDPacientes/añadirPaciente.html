@@ -3,7 +3,7 @@
 {% load widget_tweaks %}
 
 {% block cssLinks%}
-
+<link rel="stylesheet" href="{% static 'MediPlannerApp/css/accion_paciente.css'%}">
 {% endblock %}
 
 {% block title %}Añadir paciente | Medi-Planner{% endblock %}
@@ -13,6 +13,8 @@
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
   
+  <div class="head"><p class="title">Añadir un paciente</p></div>
+
   <div class="form-group">
     <label for="cedula" class="txt_negrita">Cédula</label>
     {{ form.cedula|add_class:"form-control" }}
@@ -42,7 +44,9 @@
     {{ form.enfermeras|add_class:"form-control"|attr:"type:checkbox" }}
   </div>
  
-  <button type="submit" class="btn btn-primary">Aceptar</button>
-  <a href="../" type="submit" class="btn btn-primary">Volver</a>
+  <div class="buttons">
+  <button type="submit" class="btn">Aceptar</button>
+  <a href="../" type="submit" class="text"><button type="submit" class="btn">Volver</button></a>
+</div>
 </form>
 {% endblock %}
