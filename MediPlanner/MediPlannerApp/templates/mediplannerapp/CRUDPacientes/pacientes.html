@@ -34,21 +34,29 @@
             <td data-label="Cedula">{{paciente.cedula}}</td>
             <td data-label="Habitación">{{paciente.habitacion}}</td>
             <td data-label="Genero">{{paciente.sexo}}</td>
-            <td>
+            <td data-label="Opcion">
                 <form method="POST" action="eliminarPaciente/{{paciente.cedula}}">
                     {% csrf_token %}
-                <a style="margin-right: 30px;" href="detalle/{{paciente.cedula}}">Ver</a>
-                <a style="margin-right: 30px;" href="editarPaciente/{{paciente.cedula}}">Editar</a>
+                <a style="margin-right: 30px; background-color: white;" href="detalle/{{paciente.cedula}}"><button type="button" class="btn">Ver</button></a>
+                <a style="margin-right: 30px;" href="editarPaciente/{{paciente.cedula}}"><button type="button" class="btn">Editar</button></a>
                 <button class="btn btn-danger" onclick="return eliminarPaciente();" type="submit">Eliminar</button>
                 </form>
             </td>
         </tr>
+        
         {% endfor %}
     </tbody>
+    
+<tfoot>
+    <td style="border: none;">
+        <a class="añadir" href="{% url 'añadirPaciente' %}"><button type="button" class="btn-añadir btn-primary">Añadir paciente</button></a>
+    </td>
+</tfoot>
+  
 </table>
 
 
-    <a class="añadir" href="{% url 'añadirPaciente' %}"><button type="button" class="btn">Añadir paciente</button></a>
+    
 
 
 <script type="text/javascript">

@@ -9,6 +9,13 @@
 
 {% block content %}
 <table class="table">
+    {% if messages %}
+    <ul class="messages list-group mb-3">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }} list-group-item list-group-item-primary"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
     <thead>
         <tr>
             <th>Nombre</th>
@@ -16,6 +23,7 @@
             <th>Invima</th>
             <th>Descripción</th>
             <th>Via de administración</th>
+            <th>Opcion</th>
         </tr>
     </thead>
     <tbody>
@@ -26,19 +34,23 @@
             <td data-label="Invima">{{medicina.invima}}</td>
             <td data-label="Descripción">{{medicina.descripcion}}</td>
             <td data-label="Via_administracion">{{medicina.via_administracion}}</td>
-            <td>
+            <td data-label="Opcion">
                 <form method="POST" action="eliminarMedicina/{{medicina.id}}">
                     {% csrf_token %}
-                <a style="margin-right: 30px;" href="editarMedicina/{{medicina.id}}">Editar</a>
+                <a style="margin-right: 30px; background-color: white;" href="editarMedicina/{{medicina.id}}"><button type="button" class="btn btn-primary">Editar</button></a></a>
                 <button class="btn btn-danger" onclick="return eliminarMedicina();" type="submit">Eliminar</button>
                 </form>
             </td>
         </tr>
         {% endfor%}
     </tbody> 
+    <tfoot>
+        <td style="border: none;">
+            <a class="añadir" href="{% url 'añadirMedicina' %}"><button type="button" class="btn-añadir btn-primary">Añadir medicamento</button></a>
+        </td>
+    </tfoot>
 </table>
 
-<a class="añadir" href="{% url 'añadirMedicina' %}"><button type="button" class="btn">Añadir medicamento</button></a>
 
 <script type="text/javascript">
     function eliminarMedicina() {

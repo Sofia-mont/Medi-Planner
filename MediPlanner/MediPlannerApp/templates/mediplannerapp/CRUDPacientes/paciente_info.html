@@ -10,18 +10,18 @@
 {% block content %}
 <div class="post">
     <h1 class="titulo">{{paciente.nombres}} {{paciente.apellidos}}</h1>
-    <div class="img"><img src="img/namione.jpg" alt=""></div>
+    <div class="img"><img src="{% static 'MediPlannerApp/img/avatar.png' %}" alt=""></div>
     <h1 class="Sala">Sala {{paciente.habitacion}}</h1>
     <h2>Datos Personales</h2>
     <div class="info">
-        <h4>Identificacion: {{paciente.cedula}}</h4>
-        <h4>Genero: {{paciente.sexo}}</h4>
-        <h4>Fecha de alta: {{paciente.fecha_salida}}</h4>
-        <h4>Enfermera/s a cargo: {% for enf in paciente.enfermeras.all %}{{enf.nombres}} {{enf.apellidos}}{% if not forloop.last %}, {% endif %}{% endfor %}</h4>
+        <h4 class="text">Identificacion: {{paciente.cedula}}</h4>
+        <h4 class="text"></h4>Genero: {{paciente.sexo}}</h4>
+        <h4 class="text"></h4>Fecha de alta: {{paciente.fecha_salida}}</h4>
+        <h4 class="text"></h4>Enfermera/s a cargo: {% for enf in paciente.enfermeras.all %}{{enf.nombres}} {{enf.apellidos}}{% if not forloop.last %}, {% endif %}{% endfor %}</h4>
     </div>
 </div>
 
-<h2>Medicinas de suministro</h2>
+<h2 class="table-title">Medicinas de suministro</h2>
 <table class="table">
     <thead>
         <tr>
@@ -45,7 +45,10 @@
     </tbody>
 </table>
 
-<h2>Novedades</h2>
+<br>
+<br>
+
+<h2 class="table-title">Novedades</h2>
 <table class="table">
     <thead>
         <tr>

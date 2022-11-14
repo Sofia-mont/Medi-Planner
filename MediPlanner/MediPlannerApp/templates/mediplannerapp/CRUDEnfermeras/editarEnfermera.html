@@ -1,0 +1,49 @@
+{% extends 'MediPlannerApp/base.html'%}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block cssLinks%}
+<link rel="stylesheet" href="{% static 'MediPlannerApp/css/accion_paciente.css'%}">
+{% endblock %}
+
+{% block title %}Editar enfermera | Medi-Planner{% endblock %}
+
+{% block content %}
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  
+  <div class="head"><p class="title">Editar una enfermera</p></div>
+
+  <div class="form-group">
+    <label for="cedula" class="txt_negrita">Cedula</label>
+    {{ form.cedula|add_class:"form-control"|attr:"readonly:true"}}
+  </div>
+  <div class="form-group">
+    <label for="nombres" class="txt_negrita">Nombres</label>
+    {{ form.nombres|add_class:"form-control" }}
+  </div>
+  <div class="form-group">
+    <label for="apellidos" class="txt_negrita">Apellidos</label>
+    {{ form.apellidos|add_class:"form-control" }}
+  </div>
+  <div class="form-group">
+    <label for="telefono" class="txt_negrita">Telefono</label>
+    {{ form.telefono|add_class:"form-control" }}
+  </div>
+  <div class="form-group">
+    <label for="jefe" class="txt_negrita">Jefe</label>
+    {{ form.jefe|add_class:"form-control" }}
+  </div>
+
+  <div class="form-group">
+    <label for="turno" class="txt_negrita">Turno</label>
+    {{ form.turno|add_class:"form-control" }}
+  </div>
+ 
+  <div class="buttons">
+    <button type="submit" class="btn">Aceptar</button>
+    <a href="../" type="submit" class="text"><button type="submit" class="btn">Volver</button></a>
+  </div>
+</form>
+{% endblock %}
