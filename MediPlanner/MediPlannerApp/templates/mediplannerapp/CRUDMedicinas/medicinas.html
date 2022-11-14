@@ -37,7 +37,7 @@
             <td data-label="Opcion">
                 <form method="POST" action="eliminarMedicina/{{medicina.id}}">
                     {% csrf_token %}
-                <a style="margin-right: 30px; background-color: white;" href="editarMedicina/{{medicina.id}}"><button type="button" class="btn btn-primary">Editar</button></a></a>
+                <a style="margin-right: 30px;" href="editarMedicina/{{medicina.id}}"><button type="button" class="btn btn-primary">Editar</button></a></a>
                 <button class="btn btn-danger" onclick="return eliminarMedicina();" type="submit">Eliminar</button>
                 </form>
             </td>

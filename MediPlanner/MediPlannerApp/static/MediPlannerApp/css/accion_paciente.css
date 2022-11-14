@@ -7,8 +7,7 @@ body {
 /* Inicio añadir */
 form {
     border: 2px solid gray;
-    width: 100%;
-    max-width: 600px;
+    width: 50vw;
     margin: 50px auto;
     display: flex;
     flex-direction: column;
@@ -19,8 +18,8 @@ form {
 
 .form-group {
     text-align: center;
-    width: 90%;
-    height: 30px;
+    width: 100%;
+    height: 20px;
     margin: 1rem;
 }
 
@@ -44,10 +43,44 @@ form {
     margin-right: 50px;
     justify-content: left;
     font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.form-group-enfermera{
+    margin-bottom: 1rem;
+}
+
+.form-group_novedad {
+    text-align: center;
+    width: 90%;
+    height: 40px;
+    margin: 2rem;
+}
+
+.form-group-medicamento {
+    text-align: center;
+    width: 90%;
+    height: 40px;
+    margin: 1.8rem;
+}
+
+.form-group-turno{
+    margin-top: 3rem;
+}
+
+.txt_negrita_novedad{
+    font-size: 17px;
+    margin-right: 50px;
+    justify-content: left;
+    font-weight: 400;
+}
+
+.buttons-novedad{
+    margin-top: 100px;
 }
 
 .buttons{
-    margin-top: 35px;
+    margin-top: 10px;
 }
 
 .btn{
@@ -73,7 +106,6 @@ form {
 
 /* Fin añadir */
 
-/* Inicio editar */
+/* Inicio novedad */
 
-
-/* Fin editar */
+/* Fin novedad */

@@ -44,6 +44,68 @@ img {
     margin-left: 20%;
 }
 
+.btn{
+    height: 35px;
+    border-radius: 25px;
+    font-size: 0.7rem;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, rgba(0, 132, 255, 0), rgba(3, 70, 121, 0.287), rgba(85, 128, 245, 0.353));
+    cursor: pointer;
+    color: black;
+    text-transform: uppercase;
+    background-size: 200%;
+    transition: .5s;
+    padding: 0.5em;
+}
+
+.btn:hover {
+    background-position: right;
+}
+
+.btn-medicamento{
+    width: 100px;
+    height: 35px;
+    border-radius: 25px;
+    font-size: 0.7rem;
+    margin-left: 140%;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, rgb(0, 132, 255), rgb(127, 200, 255), rgb(0, 68, 255));
+    cursor: pointer;
+    color: white;
+    text-transform: uppercase;
+    background-size: 200%;
+    transition: .5s;
+    padding: 0.5em;
+}
+
+.btn-medicamento:hover {
+    background-position: right;
+}
+
+.btn-novedad{
+    height: 35px;
+    border-radius: 25px;
+    font-size: 0.7rem;
+    margin-left: 70%;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, rgb(0, 132, 255), rgb(127, 200, 255), rgb(0, 68, 255));
+    cursor: pointer;
+    color: white;
+    text-transform: uppercase;
+    background-size: 200%;
+    transition: .5s;
+    padding: 1em;
+}
+
+.btn-novedad:hover {
+    background-position: right;
+}
+
+
+
 
 @media(max-width: 500px) {
     .table thead {
@@ -84,7 +146,7 @@ img {
 
 .post {
     position: absolute;
-    background-color: rgba(169, 169, 169, 0.299);
+    background-color: rgba(0, 132, 255, 0.358);
     top: 100px;
     bottom: 5px;
     right: 30px;
@@ -120,6 +182,7 @@ img {
 
 h2{
     text-align: center;
+    font-weight: 800;
 }
 
 .info{

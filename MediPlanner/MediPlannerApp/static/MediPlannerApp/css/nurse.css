@@ -121,11 +121,7 @@ img{
     width: 270px;
     height: 270px;
 }
-/* 
-.nurse{
-    width: 270px;
-    height: 280px;
-} */
+
 
 .btn{
     background-color: rgb(0, 132, 255);
@@ -204,3 +200,23 @@ img{
     background-color: rgb(0, 132, 255);
     border-radius: 10px;
 }
+
+@media (min-width:768px){
+    img{
+        width: 120px;
+        height: 120px;
+    }
+    
+    
+    .btn{
+        background-color: rgb(0, 132, 255);
+        line-height: 25px;
+        height: 120px;
+        text-align: center;
+        width: 120px;
+        cursor: pointer;
+        justify-content: center;
+        border-radius: 10px;
+    }
+
+  }

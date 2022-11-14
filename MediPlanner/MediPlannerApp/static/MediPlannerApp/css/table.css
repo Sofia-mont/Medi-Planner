@@ -25,7 +25,7 @@ body{
 }
 
 .table tbody tr :nth-child(even) {
-    background-color: rgba(127, 200, 255, 0.539);
+    background-color: rgba(127, 200, 255, 0.404);
 }
 
 img {

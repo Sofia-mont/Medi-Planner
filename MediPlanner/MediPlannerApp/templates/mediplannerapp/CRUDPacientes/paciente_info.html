@@ -3,6 +3,7 @@
 
 {% block cssLinks%}
 <link rel="stylesheet" href="{% static 'MediPlannerApp/css/paciente.css' %}">
+
 {% endblock %}
 
 {% block title %} {{paciente.nombres}} {{paciente.apellidos}} | Medi-Planner {% endblock %}
@@ -28,6 +29,7 @@
             <th>Nombre</th>
             <th>Dosis a suministrar</th>
             <th>Hora de suministración</th>
+            <th>Opcion</th>
         </tr>
     </thead>
     <tbody>
@@ -36,19 +38,24 @@
             <td data-label="Nombre">{% for medicina in medicamento.medicamento.all %}{{medicina.nombre}}{% endfor %}</td>
             <td data-label="Dosis">{{medicamento.dosis}}</td>
             <td data-label="Hora">{{medicamento.hora}}</td>
-            <td>
+            <td data-label="Opcio">
                 <form method="POST" action="eliminarMedicacion/{{medicamento.id}}">
                     {% csrf_token %}
-                <a style="margin-right: 30px;" href="editarMedicacion/{{medicamento.id}}">Editar</a>
+                <a href="editarMedicacion/{{medicamento.id}}"><button type="button" class="btn">Editar</button></a>
                 <button class="btn btn-danger" onclick="return eliminarMedicacion();" type="submit">Eliminar</button>
                 </form>
             </td>
         </tr>
         {% endfor%}
     </tbody>
+    <tfoot>
+        <td style="border: none;">
+            <a class="añadir" href="{% url 'añadirMedicacion' %}"><button type="button" class="btn-medicamento">Añadir medicamento</button></a>
+        </td>
+    </tfoot>
 </table>
 
-<a class="añadir" href="{% url 'añadirMedicacion' %}"><button type="button" class="btn">Añadir medicamento</button></a>
+
 
 <h2>Novedades</h2>
 <table class="table">
@@ -73,8 +80,12 @@
         </tr>
         {% endfor%}
     </tbody>
+    <tfoot>
+        <td style="border: none;">
+            <a class="añadir" href="{% url 'añadirNovedad' %}"><button type="button" class="btn-novedad">Añadir novedad</button></a>
+        </td>
+    </tfoot>
 </table>
-<a class="añadir" href="{% url 'añadirNovedad' %}"><button type="button" class="btn">Añadir novedad</button></a>
 
 <script type="text/javascript">
     function eliminarMedicacion() {

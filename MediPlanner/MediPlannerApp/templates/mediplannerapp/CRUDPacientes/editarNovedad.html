@@ -13,15 +13,18 @@
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
   
-  <div class="form-group">
-    <label for="paciente" class="txt_negrita">Paciente</label>
+  <div class="head"><p class="title">Editar un novedad</p></div>
+
+
+  <div class="form-group_novedad">
+    <label for="paciente" class="txt_negrita_novedad">Paciente</label>
     {{ form.paciente|add_class:"form-control"}}
   </div>
-  <div class="form-group">
-    <label for="descripcion" class="txt_negrita">Descripción de la novedad</label>
+  <div class="form-group_novedad">
+    <label for="descripcion" class="txt_negrita_novedad">Descripción de la novedad</label>
     {{ form.descripcion|add_class:"form-control"}}
   </div>
-  <div>
+  <div class="buttons-novedad">
     <button type="submit" class="btn">Aceptar</button>
     <a href="../" type="submit" class="text"><button type="submit" class="btn">Volver</button></a>
 </div>
