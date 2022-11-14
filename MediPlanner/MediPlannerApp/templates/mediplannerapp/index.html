@@ -8,9 +8,28 @@
 {% block title %}Index{% endblock %}
 
 {% block content %}
-    <section class="icons">
+<!-- <section class="icons">
         <a href="{% url 'enfermeras'%}"><img src="{% static 'MediPlannerApp/img/nurse-icon.svg' %}" alt=""></a>
         <a href="{% url 'pacientes'%}"><img src="{% static 'MediPlannerApp/img/patient.svg' %}" alt=""></a>
         <a href="{% url 'medicinas'%}"><img src="{% static 'MediPlannerApp/img/medicament.svg' %}" alt=""></a>
-    </section>
+    </section> -->
+
+<!-- Hover #2 -->
+
+<div class="container ">
+
+    <div class="btn btn-uno">
+        <a href="{% url 'enfermeras'%}"><span><img class="nurse" src="{% static 'MediPlannerApp/img/nurse-icon.svg' %}" alt=""></span></a>
+    </div>
+
+    <div class="btn btn-dos">
+        <a href="{% url 'pacientes'%}"><span><img src="{% static 'MediPlannerApp/img/patient.svg' %}" alt=""></span></a>
+    </div>
+
+    <div class="btn btn-tres">
+        <a href="{% url 'medicinas'%}"><span><img class="medicament" src="{% static 'MediPlannerApp/img/medicament.svg' %}" alt=""></span></a>
+    </div>
+
+</div>
+
 {% endblock %}
