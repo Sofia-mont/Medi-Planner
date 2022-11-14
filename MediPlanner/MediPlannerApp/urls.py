@@ -26,4 +26,7 @@ urlpatterns = [
     path('enfermeras/añadirEnfermera/', views.añadirEnfermera.as_view(), name="añadirEnfermera"),
     path('enfermeras/editarEnfermera/<int:pk>', views.editarEnfermera.as_view(), name="editarEnfermera"),
     path('enfermeras/eliminarEnfermera/<int:pk>', views.eliminarEnfermera.as_view(), name="eliminarEnfermera"),
+
+    path('message', views.message),
+
 ]

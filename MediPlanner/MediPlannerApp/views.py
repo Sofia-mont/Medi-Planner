@@ -7,6 +7,20 @@ from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin 
 from django import forms
 
+#whatsapp messages
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+
+
+@csrf_exempt
+def message(self):
+    user = request.POST.get('From')
+    message = request.POST.get('Body')
+    print(f'{user} says {message}')
+
+    return HttpResponse('Hora de medicar al paciente')
+
+
 # Create your views here.
 def login(request):
     return render(request, "MediPlannerApp/index-login.html")
