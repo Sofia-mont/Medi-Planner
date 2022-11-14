@@ -1,0 +1,38 @@
+{% extends 'MediPlannerApp/base.html'%}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block cssLinks%}
+<link rel="stylesheet" href="{% static 'MediPlannerApp/css/accion_paciente.css'%}">
+{% endblock %}
+
+{% block title %}Añadir medicación{% endblock %}
+
+{% block content %}
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  
+  <div class="form-group">
+    <label for="cedula" class="txt_negrita">Cédula</label>
+    {{ form.cedula|add_class:"form-control"}}
+  </div>
+  <div class="form-group">
+    <label for="medicamento" class="txt_negrita">Medicamento</label>
+    {{ form.medicamento|add_class:"form-control"|attr:"type:checkbox" }}
+  </div>
+  <div class="form-group">
+    <label for="hora" class="txt_negrita">Hora</label>
+    {{ form.hora|add_class:"form-control"}}
+  </div>
+  <div class="form-group">
+    <label for="dosis" class="txt_negrita">Dosis</label>
+    {{ form.dosis|add_class:"form-control"}}
+  </div>
+  <div>
+    <button type="submit" class="btn">Aceptar</button>
+    <a href="../" type="submit" class="text"><button type="submit" class="btn">Volver</button></a>
+</div>
+</form>
+
+{% endblock %}

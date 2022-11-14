@@ -117,10 +117,67 @@ class editarEnfermera(SuccessMessageMixin, UpdateView):
 class eliminarEnfermera(SuccessMessageMixin, DeleteView):
     model = Enfermera
     form = Enfermera
-    template_name = "MediPlannerApp/CRUDEnfermeras/añadirEnfermera.html"
     fields = "__all__"
 
     def get_success_url(self):
         success_message= 'Enfermera/o eliminado correctamente.'
         messages.success (self.request, (success_message))
         return reverse('enfermeras')
+
+class añadirMedicacion(SuccessMessageMixin, CreateView):
+    model = Medicamento
+    form = Medicamento
+    template_name = "MediPlannerApp/CRUDPacientes/añadirMedicamento.html"
+    fields = "__all__"
+    success_message= 'Medicamento añadido correctamente.'
+
+    def get_success_url(self):
+        return reverse('pacientes')
+
+class editarMedicacion(SuccessMessageMixin, UpdateView):
+    model = Medicamento
+    form = Medicamento
+    template_name = "MediPlannerApp/CRUDPacientes/editarMedicamento.html"
+    fields = "__all__"
+
+    def get_success_url(self):
+        return reverse('pacientes')
+
+class eliminarMedicacion(SuccessMessageMixin, DeleteView):
+    model = Medicamento
+    form = Medicamento
+    fields = "__all__"
+
+    def get_success_url(self):
+        success_message= 'Medicamento eliminado correctamente.'
+        messages.success (self.request, (success_message))
+        return reverse('pacientes')
+
+class añadirNovedad(SuccessMessageMixin, CreateView):
+    model = Novedades
+    form = Novedades
+    template_name = "MediPlannerApp/CRUDPacientes/añadirNovedad.html"
+    fields = "__all__"
+    success_message= 'Medicamento añadido correctamente.'
+
+    def get_success_url(self):
+        return reverse('pacientes')
+
+class editarNovedad(SuccessMessageMixin, UpdateView):
+    model = Novedades
+    form = Novedades
+    template_name = "MediPlannerApp/CRUDPacientes/editarNovedad.html"
+    fields = "__all__"
+
+    def get_success_url(self):
+        return reverse('pacientes')
+
+class eliminarNovedad(SuccessMessageMixin, DeleteView):
+    model = Novedades
+    form = Novedades
+    fields = "__all__"
+
+    def get_success_url(self):
+        success_message= 'Novedad eliminado correctamente.'
+        messages.success (self.request, (success_message))
+        return reverse('pacientes')

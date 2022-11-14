@@ -37,13 +37,18 @@
             <td data-label="Dosis">{{medicamento.dosis}}</td>
             <td data-label="Hora">{{medicamento.hora}}</td>
             <td>
-                <a style="margin-right: 30px;" href="">Eliminar</a> <!--FALTA POR PROGRAMAR-->
-                <a style="margin-right: 30px;" href="">Editar</a> <!--FALTA POR PROGRAMAR--> 
+                <form method="POST" action="eliminarMedicacion/{{medicamento.id}}">
+                    {% csrf_token %}
+                <a style="margin-right: 30px;" href="editarMedicacion/{{medicamento.id}}">Editar</a>
+                <button class="btn btn-danger" onclick="return eliminarMedicacion();" type="submit">Eliminar</button>
+                </form>
             </td>
         </tr>
         {% endfor%}
     </tbody>
 </table>
+
+<a class="añadir" href="{% url 'añadirMedicacion' %}"><button type="button" class="btn">Añadir medicamento</button></a>
 
 <h2>Novedades</h2>
 <table class="table">
@@ -59,11 +64,32 @@
             <td data-label="Fecha">{{novedad.fecha}}</td>
             <td data-label="Novedad">{{novedad.descripcion}}</td>
             <td>
-                <a style="margin-right: 30px;" href="">Eliminar</a> <!--FALTA POR PROGRAMAR-->
-                <a style="margin-right: 30px;" href="">Editar</a> <!--FALTA POR PROGRAMAR--> 
+                <form method="POST" action="eliminarNovedad/{{novedad.id}}">
+                    {% csrf_token %}
+                <a style="margin-right: 30px;" href="editarNovedad/{{novedad.id}}">Editar</a>
+                <button class="btn btn-danger" onclick="return eliminarNovedad();" type="submit">Eliminar</button>
+                </form>
             </td>
         </tr>
         {% endfor%}
     </tbody>
 </table>
+<a class="añadir" href="{% url 'añadirNovedad' %}"><button type="button" class="btn">Añadir novedad</button></a>
+
+<script type="text/javascript">
+    function eliminarMedicacion() {
+      var x = confirm("¿Estás seguro de que desea eliminar este registro?");
+      if (x)
+        return true;
+      else
+        return false;
+    }
+    function eliminarNovedad() {
+      var x = confirm("¿Estás seguro de que desea eliminar este registro?");
+      if (x)
+        return true;
+      else
+        return false;
+    }    
+</script>
 {% endblock %}
