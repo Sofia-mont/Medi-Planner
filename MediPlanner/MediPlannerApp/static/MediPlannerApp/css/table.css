@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;300&display=swap');
 
 
+body{
+    font-family: 'Fira Sans', sans-serif;
+}
+
 .table {
     width: 100%;
-    background-color: aliceblue;
-    position: absolute;
+    background-color: rgb(255, 255, 255);
+    position: absolute  ;
     top: 100px;
 }
 
@@ -16,12 +20,12 @@
 }
 
 .table th {
-    background-color: rgba(0, 27, 53, 0.667);
-    color: aliceblue;
+    background-color: rgba(0, 132, 255, 0.371);
+    /* color: aliceblue; */
 }
 
 .table tbody tr :nth-child(even) {
-    background-color: var(--light);
+    background-color: rgba(127, 200, 255, 0.539);
 }
 
 img {
@@ -29,24 +33,24 @@ img {
     height: 30px;
     cursor: pointer;
 }
-/* Medicinas */
-.añadirM{
-    position: relative;
-    top: 300px;
-    text-decoration: none;
+
+tfoot{
+    width: 100%;
+    background-color: white;
 }
 
 
+/* Medicinas */
+
 .añadir{
-    position: relative;
-    top: 300px;
-    text-decoration: none;
+    text-decoration: none; 
+    margin-left: 150%;
+    z-index: 99;
 }
 
 .btn{
     height: 35px;
     border-radius: 25px;
-    margin: 2rem 0;
     font-size: 0.7rem;
     outline: none;
     border: none;
@@ -59,7 +63,27 @@ img {
     padding: 1em;
 }
 
-.btnP:hover {
+.btn:hover {
+    background-position: right;
+}
+
+.btn-añadir{
+    height: 35px;
+    border-radius: 25px;
+    font-size: 0.7rem;
+    margin-left: 50%;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, rgb(0, 132, 255), rgb(127, 200, 255), rgb(0, 68, 255));
+    cursor: pointer;
+    color: white;
+    text-transform: uppercase;
+    background-size: 200%;
+    transition: .5s;
+    padding: 1em;
+}
+
+.btn-añadir:hover {
     background-position: right;
 }
 

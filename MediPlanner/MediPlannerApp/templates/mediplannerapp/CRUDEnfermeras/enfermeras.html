@@ -23,6 +23,7 @@
             <th>Cedula</th>
             <th>Turno</th>
             <th>Telefono</th>
+            <th>Opcion</th>
         </tr>
     </thead>
     <tbody>
@@ -33,19 +34,23 @@
             <td data-label="Turno">{% for turnos in enfermera.turno.all %}{{turnos.ingreso}}-{{turnos.salida}}{% if not forloop.last %} | {% endif %}{% endfor %}</td>
             <td data-label="Telefono">{{enfermera.telefono}}</td>
             <!-- <td data-label="None"><img src="{% static 'MediPlannerApp/img/nurse-table.svg' %}" alt=""></td> -->
-            <td>
+            <td data-label="Opcion">
                 <form method="POST" action="eliminarEnfermera/{{enfermera.cedula}}">
                     {% csrf_token %}
-                <a style="margin-right: 30px;" href="editarEnfermera/{{enfermera.cedula}}">Editar</a>
+                <a style="margin-right: 30px; background-color: white;" href="editarEnfermera/{{enfermera.cedula}}"><button type="button" class="btn">Editar</button></a></a>
                 <button class="btn btn-danger" onclick="return eliminarEnfermera();" type="submit">Eliminar</button>
                 </form>
             </td>
         </tr>
         {% endfor%}
     </tbody>
+    <tfoot>
+        <td style="border: none;">
+            <a class="añadir" href="{% url 'añadirEnfermera' %}"><button type="button" class="btn-añadir btn-primary">Añadir Enfermera</button></a>
+        </td>
+    </tfoot>
 </table>
 
-<a class="añadir" href="{% url 'añadirEnfermera' %}"><button type="button" class="btn">Añadir Enfermera</button></a>
 
 <script type="text/javascript">
     function eliminarEnfermera() {

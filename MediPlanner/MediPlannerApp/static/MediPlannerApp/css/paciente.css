@@ -1,11 +1,13 @@
-:root {
-    --primary: #55ad9d;
-    --light: #29626a;
-    --dark: #0f4456;
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;300&display=swap');
+
+* {
+    padding: 0;
+    margin-top: 0;
+    box-sizing: border-box;
 }
 
 body{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Fira Sans', sans-serif;
     height: 100vh;
 }
 
@@ -23,18 +25,23 @@ body{
 }
 
 .table th {
-    background-color: var(--dark);
-    color: aliceblue;
+    background-color: rgba(0, 132, 255, 0.371);
+    /* color: aliceblue; */
 }
 
 .table tbody tr :nth-child(even) {
-    background-color: var(--light);
+    background-color: rgb(127, 200, 255);
 }
 
 img {
     width: 30px;
     height: 30px;
     cursor: pointer;
+}
+
+.table-title{
+    width: 350px;
+    margin-left: 20%;
 }
 
 
@@ -77,12 +84,12 @@ img {
 
 .post {
     position: absolute;
-    background-color: darkgray;
-    top: 10px;
+    background-color: rgba(169, 169, 169, 0.299);
+    top: 100px;
     bottom: 5px;
     right: 30px;
     width: 25%;
-    box-shadow: 0 1.4rem 8rem rgba(0, 0, 0, .2);
+    box-shadow: 0 1.4rem 8rem rgba(0, 0, 0, 0.196);
 }
 
 .titulo{
@@ -116,8 +123,13 @@ h2{
 }
 
 .info{
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 400;
     text-transform: uppercase;
-    margin: 15px;
+    margin: 20px;
+}
+
+.text{
+    margin-top: 10px;
+    font-weight: 400;
 }
