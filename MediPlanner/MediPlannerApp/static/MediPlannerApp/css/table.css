@@ -21,7 +21,6 @@ body{
 
 .table th {
     background-color: rgba(0, 132, 255, 0.371);
-    /* color: aliceblue; */
 }
 
 .table tbody tr :nth-child(even) {

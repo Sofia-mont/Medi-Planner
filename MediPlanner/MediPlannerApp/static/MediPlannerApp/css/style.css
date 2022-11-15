@@ -10,6 +10,21 @@ body {
     font-family: 'Fira Sans', sans-serif;
 }
 
+::-webkit-scrollbar-track{
+    background: black;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: black;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-track{
+    background: white;
+    border-radius: 5px;
+}
+
 .wave {
     position: fixed;
     height: 100%;
@@ -38,7 +53,6 @@ body {
 .img img {
 
     width: 500px;
-    /* opacity: 70%; */
 }
 
 .login-content {

@@ -1,99 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;300&display=swap');
 
 
-/* body{
-    font-family: 'Fira Sans', sans-serif;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
-}
-
-.icons {
-    width: 100%;
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    margin: 80px auto;
-}
-
-.icons img {
-    display: flex;
-    width: 200px;
-    margin: 120px;
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    background: #0f0c29;
-
-    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
-
-    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
-
-    border-radius: 99px;
-    transition: .5s ease-in-out;
-    justify-content: center;
-}
-
-
-img:hover {
-    -webkit-animation: animar .8s infinite;
-    background: #0f0c29;
-    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
-    background: linear-gradient(to right, #24243e, #302b63, #0f0c29f8);
-    transition: .6s ease-in-out;
-}
-
-@-webkit-keyframes animar {
-    0% {
-        -webkit-transform: translate(0px, 0px);
-    }
-
-    10% {
-        -webkit-transform: translate(5px, 0px);
-    }
-
-    20% {
-        -webkit-transform: translate(0px, 0px);
-    }
-
-    30% {
-        -webkit-transform: translate(3px, 0px);
-    }
-
-    40% {
-        -webkit-transform: translate(0px, 0px);
-    }
-
-    50% {
-        -webkit-transform: translate(3px, 0px);
-    }
-
-    60% {
-        -webkit-transform: translate(0px, 0px);
-    }
-
-    70% {
-        -webkit-transform: translate(3px, 0px);
-    }
-
-    80% {
-        -webkit-transform: translate(0px, 0px);
-    }
-
-    90% {
-        -webkit-transform: translate(3px, 0px);
-    }
-
-    100% {
-        -webkit-transform: translate(0px, 0px);
-    }
-} */
 
 html,
 body {
@@ -101,7 +8,7 @@ body {
     height: 100%;
     overflow: hidden;
     margin: 0;
-    /* display: flex; */
+    font-family: 'Fira Sans', sans-serif;
     flex-direction: column;
     flex-wrap: wrap;
     font-family: 'Open Sans Condensed', sans-serif;
